@@ -1,0 +1,170 @@
+/* Trushita Farm - Exact Official Color Palette & Dynamic Animations
+ * Matching https://www.trushita.farm/ (Emerald-600, Matte Black, Zinc-50/950)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --primary: #059669;          /* Official Emerald-600 */
+  --primary-light: #10B981;    /* Emerald-500 */
+  --primary-dark: #047857;     /* Emerald-700 */
+  --primary-deep: #064E3B;     /* Emerald-900 */
+  --accent-green: #34D399;     /* Emerald-400 */
+  
+  --bg-main: #FFFFFF;
+  --bg-subtle: #FAFAFA;        /* Zinc-50 */
+  --bg-card: #FFFFFF;
+  --bg-dark: #09090B;          /* Zinc-950 */
+  
+  --text-main: #09090B;        /* Jet Black */
+  --text-muted: #71717A;       /* Zinc-500 */
+  --text-subtle: #A1A1AA;      /* Zinc-400 */
+  
+  --border-light: #E4E4E7;     /* Zinc-200 */
+  --border-dark: #27272A;      /* Zinc-800 */
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar in Emerald */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F4F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #059669;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #047857;
+}
+
+/* Ambient Oil Drip Animation */
+@keyframes oilDrip {
+  0% {
+    transform: translateY(-15px) scale(0.8);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(55px) scale(1.1, 0.9);
+  }
+  90% {
+    opacity: 0.7;
+    transform: translateY(75px) scale(1.4, 0.5);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(85px) scale(2, 0.2);
+  }
+}
+
+.animate-oil-drip {
+  animation: oilDrip 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Ghani Mechanics Spin */
+@keyframes ghaniSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-ghani-slow {
+  animation: ghaniSpin 22s linear infinite;
+}
+
+.animate-ghani-reverse {
+  animation: ghaniSpin 30s linear infinite reverse;
+}
+
+/* Emerald Glow Pulse */
+@keyframes pulseEmerald {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(5, 150, 105, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(5, 150, 105, 0.45);
+  }
+}
+
+.glow-emerald {
+  animation: pulseEmerald 3s ease-in-out infinite;
+}
+
+/* Floating Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Card Hover 3D Lift */
+.product-card {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -8px rgba(5, 150, 105, 0.12);
+  border-color: rgba(5, 150, 105, 0.4);
+}
+
+/* Toast Notification Animation */
+@keyframes slideInUp {
+  from {
+    transform: translate(-50%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+}
+
+.toast-animate {
+  animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Official Sharp Minimalist Buttons */
+.btn-primary {
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  background-color: #27272A;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-emerald {
+  background-color: #059669;
+  color: #FFFFFF;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.btn-emerald:hover {
+  background-color: #047857;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+}
