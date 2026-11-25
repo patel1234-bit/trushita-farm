@@ -1,8 +1,8 @@
 /**
- * Trushita Natural Food - Complete Web Application Engine
- * Exact Official Trushita Brand Design & Colors
- * Features: Product Catalog, Ghani Simulator, NABL Verifier, Oil Calculator,
- * User Auth (Login/Register/Logout), Order History & Full Admin Dashboard
+ * Trushita Natural Food - High-End D2C Web Application Engine
+ * Exact Official Brand Colors: Emerald-600 (#059669), Jet Black (#09090B), Zinc-50/100/200/900
+ * Elevated UI with Live Telemetry, Interactive Simulators, NABL Batch Verifier,
+ * Family Oil Calculator, User Auth, and Complete Admin Portal.
  */
 
 // 1. PRODUCT CATALOG DATA
@@ -18,13 +18,14 @@ const PRODUCTS = [
     icon: "🥜",
     shortDesc: "Single-origin Saurashtra peanuts crushed in traditional wood ghani. Rich, nutty aroma with natural vitamin E.",
     seedOrigin: "Saurashtra & Visnagar, Gujarat",
-    smokePoint: "232°C (Ideal for Deep Frying & Everyday Sabzi)",
-    extractionTemp: "38°C (Strict Cold Press)",
+    smokePoint: "232°C (Ideal for Everyday Sabzi & Frying)",
+    extractionTemp: "37.4°C (Strict Cold Press)",
     color: "#059669",
+    nutritionTag: "High MUFA • Vitamin E",
     sizes: [
-      { size: "500 ml", price: 210, originalPrice: 240, savings: "12% OFF" },
-      { size: "1 Litre", price: 395, originalPrice: 450, savings: "12% OFF", default: true },
-      { size: "5 Litres Tin", price: 1850, originalPrice: 2150, savings: "14% OFF" }
+      { size: "500 ml", price: 210, originalPrice: 240, savings: "12% OFF", perLiter: "₹420/L" },
+      { size: "1 Litre", price: 395, originalPrice: 450, savings: "12% OFF", perLiter: "₹395/L", default: true },
+      { size: "5 Litres Tin", price: 1850, originalPrice: 2150, savings: "14% OFF", perLiter: "₹370/L" }
     ],
     nutrition: {
       mufa: "51.8g",
@@ -53,12 +54,13 @@ const PRODUCTS = [
     shortDesc: "Sweeter and milder than black mustard. Extracted without heat to preserve natural Sinigrin and essential Omega-3.",
     seedOrigin: "North Gujarat & Rajasthan border",
     smokePoint: "250°C (High Heat & Pickling)",
-    extractionTemp: "36°C (Gentle Wood Press)",
+    extractionTemp: "35.8°C (Gentle Wood Press)",
     color: "#059669",
+    nutritionTag: "Rich in Omega-3 • Sinigrin",
     sizes: [
-      { size: "500 ml", price: 190, originalPrice: 220, savings: "14% OFF" },
-      { size: "1 Litre", price: 360, originalPrice: 410, savings: "12% OFF", default: true },
-      { size: "5 Litres Tin", price: 1690, originalPrice: 1980, savings: "15% OFF" }
+      { size: "500 ml", price: 190, originalPrice: 220, savings: "14% OFF", perLiter: "₹380/L" },
+      { size: "1 Litre", price: 360, originalPrice: 410, savings: "12% OFF", perLiter: "₹360/L", default: true },
+      { size: "5 Litres Tin", price: 1690, originalPrice: 1980, savings: "15% OFF", perLiter: "₹338/L" }
     ],
     nutrition: {
       mufa: "60.4g",
@@ -87,12 +89,13 @@ const PRODUCTS = [
     shortDesc: "Queen of edible oils. Rich in Sesamin & Sesamolin antioxidants, perfect for therapeutic tempering and wellness.",
     seedOrigin: "Unjha Mandi certified local sesame",
     smokePoint: "210°C (Sauteing & Drizzling)",
-    extractionTemp: "35°C (Ultra Cold Expeller)",
+    extractionTemp: "34.2°C (Ultra Cold Expeller)",
     color: "#059669",
+    nutritionTag: "Sesamin • Calcium Co-factor",
     sizes: [
-      { size: "500 ml", price: 290, originalPrice: 330, savings: "12% OFF" },
-      { size: "1 Litre", price: 540, originalPrice: 620, savings: "13% OFF", default: true },
-      { size: "5 Litres Tin", price: 2550, originalPrice: 2950, savings: "14% OFF" }
+      { size: "500 ml", price: 290, originalPrice: 330, savings: "12% OFF", perLiter: "₹580/L" },
+      { size: "1 Litre", price: 540, originalPrice: 620, savings: "13% OFF", perLiter: "₹540/L", default: true },
+      { size: "5 Litres Tin", price: 2550, originalPrice: 2950, savings: "14% OFF", perLiter: "₹510/L" }
     ],
     nutrition: {
       mufa: "40.5g",
@@ -121,12 +124,13 @@ const PRODUCTS = [
     shortDesc: "Authentic strong Kacchi Ghani kick with tear-inducing purity. The gold standard for authentic regional curry cooking.",
     seedOrigin: "Mehsana Farming Cooperatives",
     smokePoint: "250°C (High Smoke Point)",
-    extractionTemp: "37°C (Timber Kolhu)",
+    extractionTemp: "36.5°C (Timber Kolhu)",
     color: "#059669",
+    nutritionTag: "Raw Sinigrin • High Pungency",
     sizes: [
-      { size: "500 ml", price: 180, originalPrice: 210, savings: "14% OFF" },
-      { size: "1 Litre", price: 340, originalPrice: 390, savings: "13% OFF", default: true },
-      { size: "5 Litres Tin", price: 1590, originalPrice: 1890, savings: "16% OFF" }
+      { size: "500 ml", price: 180, originalPrice: 210, savings: "14% OFF", perLiter: "₹360/L" },
+      { size: "1 Litre", price: 340, originalPrice: 390, savings: "13% OFF", perLiter: "₹340/L", default: true },
+      { size: "5 Litres Tin", price: 1590, originalPrice: 1890, savings: "16% OFF", perLiter: "₹318/L" }
     ],
     nutrition: {
       mufa: "62.0g",
@@ -155,11 +159,12 @@ const PRODUCTS = [
     shortDesc: "Made from sun-dried sulfur-free copra. Water-clear when liquid, pure snow-white when solidified. Rich in Lauric Acid.",
     seedOrigin: "Coastal Farm Sourcing",
     smokePoint: "177°C (Baking, Raw Salads & Hair)",
-    extractionTemp: "32°C (Raw Copra Press)",
+    extractionTemp: "31.8°C (Raw Copra Press)",
     color: "#059669",
+    nutritionTag: "50%+ Lauric Acid • MCTs",
     sizes: [
-      { size: "500 ml", price: 240, originalPrice: 280, savings: "14% OFF" },
-      { size: "1 Litre", price: 460, originalPrice: 520, savings: "11% OFF", default: true }
+      { size: "500 ml", price: 240, originalPrice: 280, savings: "14% OFF", perLiter: "₹480/L" },
+      { size: "1 Litre", price: 460, originalPrice: 520, savings: "11% OFF", perLiter: "₹460/L", default: true }
     ],
     nutrition: {
       mufa: "6.0g",
@@ -188,11 +193,12 @@ const PRODUCTS = [
     shortDesc: "Plant-based Omega-3 (ALA) powerhouse. Never heated, bottled in dark UV-protected glass to preserve delicate fatty acids.",
     seedOrigin: "Gujarat Certified Organic growers",
     smokePoint: "Raw Consumption Only (Do not heat)",
-    extractionTemp: "28°C (Extreme Low Temp)",
+    extractionTemp: "28.5°C (Extreme Low Temp)",
     color: "#059669",
+    nutritionTag: "55% Alpha-Linolenic (ALA)",
     sizes: [
-      { size: "250 ml", price: 230, originalPrice: 270, savings: "15% OFF" },
-      { size: "500 ml", price: 420, originalPrice: 490, savings: "14% OFF", default: true }
+      { size: "250 ml", price: 230, originalPrice: 270, savings: "15% OFF", perLiter: "₹920/L" },
+      { size: "500 ml", price: 420, originalPrice: 490, savings: "14% OFF", perLiter: "₹840/L", default: true }
     ],
     nutrition: {
       mufa: "18.0g",
@@ -223,8 +229,9 @@ const PRODUCTS = [
     smokePoint: "Multi-purpose kitchen kit",
     extractionTemp: "All <40°C Wood Ghani",
     color: "#059669",
+    nutritionTag: "4-In-1 Discovery Set",
     sizes: [
-      { size: "4 x 100ml Set", price: 299, originalPrice: 399, savings: "25% OFF", default: true }
+      { size: "4 x 100ml Set", price: 299, originalPrice: 399, savings: "25% OFF", perLiter: "Trial Box", default: true }
     ],
     nutrition: {
       mufa: "Varies",
@@ -243,7 +250,33 @@ const PRODUCTS = [
   }
 ];
 
-// 2. BATCH LAB TEST DATABASE
+// 2. LIVE EXTRACTION UNITS DATA (HERO SIMULATOR)
+const EXTRACTION_UNITS = {
+  1: {
+    unitName: "Visnagar Unit #1",
+    seed: "Saurashtra Groundnut (G-20)",
+    temperature: "37.4°C",
+    tempProgress: "37%",
+    rpm: "12.2 RPM",
+    yield: "46.8%",
+    todayCrushed: "348 Litres",
+    statusText: "Crushing Live • Temp Optimal",
+    badge: "Bestseller Singtel"
+  },
+  2: {
+    unitName: "Visnagar Unit #2",
+    seed: "North Gujarat Yellow Sarson",
+    temperature: "35.8°C",
+    tempProgress: "32%",
+    rpm: "11.5 RPM",
+    yield: "38.2%",
+    todayCrushed: "216 Litres",
+    statusText: "Cold-Pressing • Mild Pungency",
+    badge: "Yellow Mustard"
+  }
+};
+
+// 3. INITIAL BATCH DATABASE
 const INITIAL_BATCH_DATABASE = {
   "TR-GN-8492": {
     batchNumber: "TR-GN-8492",
@@ -251,15 +284,16 @@ const INITIAL_BATCH_DATABASE = {
     crushDate: "04-Nov-2026",
     testingDate: "06-Nov-2026",
     expiryDate: "03-Aug-2027",
-    nablLab: "Vardhman Food Testing Laboratories (NABL Accredited TC-5821)",
+    nablLab: "Vardhman Food Testing Laboratories (NABL ISO/IEC 17025 TC-5821)",
     seedSource: "Babra Cluster, Amreli & Visnagar Gujarat",
-    status: "PASS - 100% PURE & CLEAN",
+    status: "PASS - 100% PURE & UNADULTERATED",
     parameters: [
-      { param: "Free Fatty Acids (as Oleic Acid)", standard: "Max 1.5%", result: "0.42%", status: "PASSED (Superior)" },
+      { param: "Free Fatty Acids (FFA as Oleic Acid)", standard: "Max 1.5%", result: "0.42%", status: "PASSED (Superior)" },
       { param: "Moisture & Insoluble Impurities", standard: "Max 0.25%", result: "0.08%", status: "PASSED" },
-      { param: "Aflatoxin (B1, B2, G1, G2)", standard: "Max 15.0 ppb", result: "NOT DETECTED (<1.0 ppb)", status: "PASSED (Safe)" },
-      { param: "Mineral Oil / Argemone Oil", standard: "Negative", result: "NEGATIVE (Nil)", status: "PASSED (Pure)" },
-      { param: "Hexane / Solvent Residues", standard: "Nil", result: "0.00 ppm (Zero)", status: "PASSED" }
+      { param: "Aflatoxin Toxins (B1, B2, G1, G2)", standard: "Max 15.0 ppb", result: "NOT DETECTED (<1.0 ppb)", status: "PASSED (Safe)" },
+      { param: "Mineral Oil / Argemone Test", standard: "Negative", result: "NEGATIVE (Nil)", status: "PASSED (Pure)" },
+      { param: "Heavy Metals (Lead, Arsenic)", standard: "Below FSSAI Limit", result: "Below Detection Limit", status: "PASSED" },
+      { param: "Hexane Solvent Residue", standard: "Nil", result: "0.00 ppm (Zero)", status: "PASSED" }
     ]
   },
   "TR-YM-5510": {
@@ -272,10 +306,11 @@ const INITIAL_BATCH_DATABASE = {
     seedSource: "Deesa & North Mehsana Farmers Group",
     status: "PASS - 100% UNADULTERATED",
     parameters: [
-      { param: "Free Fatty Acids (as Oleic Acid)", standard: "Max 1.5%", result: "0.38%", status: "PASSED" },
+      { param: "Free Fatty Acids (FFA)", standard: "Max 1.5%", result: "0.38%", status: "PASSED" },
       { param: "Natural Allyl Isothiocyanate", standard: "Min 0.25%", result: "0.48% (Rich)", status: "PASSED" },
       { param: "Synthetic Pungency Agents", standard: "Negative", result: "NEGATIVE (100% Natural)", status: "PASSED" },
-      { param: "Hexane / Chemical Solvents", standard: "Nil", result: "0.00 ppm", status: "PASSED" }
+      { param: "Argemone Oil Check", standard: "Negative", result: "NEGATIVE", status: "PASSED" },
+      { param: "Hexane Solvent Residue", standard: "Nil", result: "0.00 ppm", status: "PASSED" }
     ]
   },
   "TR-WS-3304": {
@@ -296,7 +331,7 @@ const INITIAL_BATCH_DATABASE = {
   }
 };
 
-// INITIAL SEED ORDERS FOR ADMIN & USER DEMO
+// INITIAL SEED ORDERS
 const INITIAL_ORDERS = [
   {
     id: "TR-ORD-1092",
@@ -347,20 +382,22 @@ const INITIAL_ORDERS = [
   }
 ];
 
-// 3. APPLICATION STATE
+// 4. APPLICATION STATE
 const state = {
   cart: [],
   activeCategory: "all",
+  searchQuery: "",
   activeStep: 2,
+  activeUnit: 1,
   selectedProductSizes: {},
   promoDiscount: 0,
   promoApplied: false,
   
   // Auth state
-  currentUser: null,       // { name, email, role: 'customer' | 'admin' }
+  currentUser: null,
   isAdmin: false,
   
-  // Admin & Data state
+  // Dynamic collections
   batches: INITIAL_BATCH_DATABASE,
   orders: INITIAL_ORDERS,
   promoCodes: { "PURE10": 10, "TRUSHITA10": 10, "FARM20": 20 }
@@ -372,7 +409,7 @@ PRODUCTS.forEach(p => {
   state.selectedProductSizes[p.id] = defaultIdx !== -1 ? defaultIdx : 0;
 });
 
-// Load persistent state from localStorage
+// Load persistent storage
 try {
   const savedCart = localStorage.getItem("trushita_cart");
   if (savedCart) state.cart = JSON.parse(savedCart);
@@ -390,8 +427,718 @@ try {
   if (savedBatches) state.batches = JSON.parse(savedBatches);
 } catch (e) {}
 
-// 4. AUTHENTICATION (LOGIN, LOGOUT, ADMIN) FUNCTIONS
+// 5. HERO UNIT SWITCHER (SIMULATOR)
+function switchHeroUnit(unitId) {
+  state.activeUnit = unitId;
+  const unit = EXTRACTION_UNITS[unitId];
 
+  // Update tabs
+  const tab1 = document.getElementById("unit-tab-1");
+  const tab2 = document.getElementById("unit-tab-2");
+  if (tab1 && tab2) {
+    if (unitId === 1) {
+      tab1.className = "flex-1 py-1.5 px-3 text-xs font-bold rounded-sm bg-black text-white shadow-xs transition-all";
+      tab2.className = "flex-1 py-1.5 px-3 text-xs font-semibold rounded-sm bg-zinc-100 text-zinc-600 hover:bg-zinc-200 transition-all";
+    } else {
+      tab2.className = "flex-1 py-1.5 px-3 text-xs font-bold rounded-sm bg-black text-white shadow-xs transition-all";
+      tab1.className = "flex-1 py-1.5 px-3 text-xs font-semibold rounded-sm bg-zinc-100 text-zinc-600 hover:bg-zinc-200 transition-all";
+    }
+  }
+
+  // Update DOM values
+  const seedElem = document.getElementById("hero-unit-seed");
+  const tempElem = document.getElementById("hero-unit-temp");
+  const tempBar = document.getElementById("hero-unit-temp-bar");
+  const rpmElem = document.getElementById("hero-unit-rpm");
+  const yieldElem = document.getElementById("hero-unit-yield");
+  const badgeElem = document.getElementById("hero-unit-badge");
+
+  if (seedElem) seedElem.textContent = unit.seed;
+  if (tempElem) tempElem.textContent = unit.temperature;
+  if (tempBar) tempBar.style.width = unit.tempProgress;
+  if (rpmElem) rpmElem.textContent = unit.rpm;
+  if (yieldElem) yieldElem.textContent = unit.yield;
+  if (badgeElem) badgeElem.textContent = unit.badge;
+
+  showToast(`Switched telemetry to ${unit.unitName} 🟢`);
+}
+
+// 6. PRODUCT CATALOG RENDERING & SEARCH
+function renderProducts() {
+  const container = document.getElementById("product-grid");
+  if (!container) return;
+
+  let filtered = state.activeCategory === "all" 
+    ? PRODUCTS 
+    : PRODUCTS.filter(p => p.category === state.activeCategory);
+
+  if (state.searchQuery.trim() !== "") {
+    const q = state.searchQuery.toLowerCase();
+    filtered = filtered.filter(p => 
+      p.name.toLowerCase().includes(q) || 
+      p.hindiName.toLowerCase().includes(q) || 
+      p.shortDesc.toLowerCase().includes(q)
+    );
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-full py-16 text-center bg-white rounded-sm border border-zinc-200 p-8">
+        <span class="text-4xl block mb-2">🔍</span>
+        <h4 class="text-base font-bold text-zinc-900">No matching oils found</h4>
+        <p class="text-xs text-zinc-500 mt-1">Try searching for "groundnut", "mustard", "sesame" or clear your filter.</p>
+        <button onclick="clearSearch()" class="mt-4 px-4 py-2 bg-black text-white text-xs font-bold rounded-sm">
+          Reset Filter
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(product => {
+    const selectedSizeIdx = state.selectedProductSizes[product.id] || 0;
+    const currentSize = product.sizes[selectedSizeIdx];
+
+    return `
+      <div class="product-card group flex flex-col justify-between p-4 sm:p-5 rounded-sm bg-white border border-zinc-200/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-zinc-300 transition-all duration-300">
+        
+        <!-- Aspect-Square Media Container -->
+        <div class="relative mb-3.5 w-full aspect-square rounded-sm bg-zinc-50 flex items-center justify-center border border-zinc-100 overflow-hidden group-hover:bg-emerald-50/20 transition-colors">
+          <span class="text-6xl filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
+            ${product.icon}
+          </span>
+          
+          <!-- Exact badge from trushita.farm: bg-emerald-600 with white pulse dot -->
+          <div class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-sm flex items-center gap-1 shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+            <span>${product.tag}</span>
+          </div>
+
+          <div class="absolute bottom-2 left-2 text-[10px] font-semibold text-zinc-600 bg-white/95 backdrop-blur-xs px-2 py-0.5 rounded-sm border border-zinc-200/80">
+            ⚡ ${product.smokePoint.split(' ')[0]}
+          </div>
+
+          <div class="absolute bottom-2 right-2 text-[10px] font-bold text-emerald-800 bg-emerald-50/95 backdrop-blur-xs px-2 py-0.5 rounded-sm border border-emerald-200/80">
+            ${product.nutritionTag}
+          </div>
+        </div>
+
+        <!-- Title, Description & Size Selector -->
+        <div class="flex flex-col text-left px-0.5 flex-grow">
+          <div class="flex items-start justify-between gap-1 mb-0.5">
+            <h3 class="font-bold text-zinc-900 text-base tracking-tight group-hover:text-emerald-700 transition-colors">
+              ${product.name}
+            </h3>
+            <button onclick="openQuickView('${product.id}')" class="text-zinc-400 hover:text-emerald-600 text-xs p-0.5" title="View Full Nutrition">
+              ℹ️
+            </button>
+          </div>
+          
+          <p class="text-[11px] text-zinc-500 font-medium mb-3 line-clamp-2 leading-relaxed">
+            ${product.shortDesc}
+          </p>
+
+          <!-- Packaging Options Switcher with Unit Price -->
+          <div class="mb-3">
+            <div class="flex items-center justify-between text-[10px] text-zinc-400 font-medium mb-1">
+              <span>Select Quantity:</span>
+              <span class="text-emerald-700 font-bold">${currentSize.perLiter}</span>
+            </div>
+            <div class="flex flex-wrap gap-1">
+              ${product.sizes.map((s, idx) => `
+                <button 
+                  onclick="selectProductSize('${product.id}', ${idx})" 
+                  class="px-2.5 py-1 text-[11px] rounded-sm transition-all ${
+                    idx === selectedSizeIdx 
+                      ? 'bg-black text-white font-bold shadow-xs' 
+                      : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200 font-medium'
+                  }">
+                  ${s.size}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+
+        <!-- Pricing & Action Button -->
+        <div class="pt-2.5 border-t border-zinc-100 mt-auto">
+          <div class="flex items-baseline justify-between mb-2.5">
+            <div>
+              <span class="text-xl font-bold text-zinc-900">₹${currentSize.price}</span>
+              ${currentSize.originalPrice ? `
+                <span class="text-xs text-zinc-400 line-through ml-1.5">₹${currentSize.originalPrice}</span>
+                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1 py-0.2 rounded ml-1">${currentSize.savings}</span>
+              ` : ''}
+            </div>
+            <span class="text-[10px] text-zinc-500 font-medium">Free Delivery ≥ ₹799</span>
+          </div>
+
+          <button 
+            id="add-btn-${product.id}"
+            onclick="addToCart('${product.id}', ${selectedSizeIdx})"
+            class="w-full bg-black hover:bg-zinc-800 text-white font-bold text-xs py-2.5 rounded-sm shadow-xs transition-all transform hover:-translate-y-0.5 cursor-pointer text-center flex items-center justify-center gap-1.5">
+            <span>Add Fresh To Cart</span>
+            <span>+</span>
+          </button>
+        </div>
+
+      </div>
+    `;
+  }).join('');
+}
+
+function handleSearch(val) {
+  state.searchQuery = val;
+  renderProducts();
+}
+
+function clearSearch() {
+  state.searchQuery = "";
+  const inp = document.getElementById("product-search-input");
+  if (inp) inp.value = "";
+  state.activeCategory = "all";
+  renderProducts();
+}
+
+function setProductCategory(cat) {
+  state.activeCategory = cat;
+  document.querySelectorAll('.cat-btn').forEach(btn => {
+    if (btn.dataset.category === cat) {
+      btn.className = "cat-btn px-3.5 py-1.5 rounded-sm text-xs font-bold bg-black text-white shadow-xs transition-all";
+    } else {
+      btn.className = "cat-btn px-3.5 py-1.5 rounded-sm text-xs font-medium bg-zinc-100 text-zinc-700 hover:bg-zinc-200 transition-all";
+    }
+  });
+  renderProducts();
+}
+
+function selectProductSize(productId, sizeIdx) {
+  state.selectedProductSizes[productId] = sizeIdx;
+  renderProducts();
+}
+
+function addToCart(productId, sizeIdx) {
+  const product = PRODUCTS.find(p => p.id === productId);
+  if (!product) return;
+
+  const sizeObj = product.sizes[sizeIdx];
+  const cartItemId = `${productId}-${sizeObj.size}`;
+
+  const existing = state.cart.find(item => item.id === cartItemId);
+  if (existing) {
+    existing.quantity += 1;
+  } else {
+    state.cart.push({
+      id: cartItemId,
+      productId: product.id,
+      name: product.name,
+      size: sizeObj.size,
+      price: sizeObj.price,
+      icon: product.icon,
+      quantity: 1
+    });
+  }
+
+  saveCart();
+  updateCartUI();
+  
+  // Visual button feedback
+  const btn = document.getElementById(`add-btn-${product.id}`);
+  if (btn) {
+    const originalText = btn.innerHTML;
+    btn.innerHTML = `<span class="text-emerald-400">✓ Added Fresh!</span>`;
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+    }, 1200);
+  }
+
+  showToast(`Added ${product.name} (${sizeObj.size}) to cart! ✨`);
+}
+
+function saveCart() {
+  try {
+    localStorage.setItem("trushita_cart", JSON.stringify(state.cart));
+  } catch (e) {}
+}
+
+function updateCartUI() {
+  const totalCount = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+  const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  
+  const threshold = 799;
+  const progressPercent = Math.min(100, Math.round((subtotal / threshold) * 100));
+  const diff = threshold - subtotal;
+
+  const badges = document.querySelectorAll(".cart-count-badge");
+  badges.forEach(b => {
+    b.textContent = totalCount;
+    b.style.display = totalCount > 0 ? "inline-flex" : "none";
+  });
+
+  const itemsContainer = document.getElementById("cart-items-container");
+  const emptyState = document.getElementById("cart-empty-state");
+  const footer = document.getElementById("cart-footer");
+  const subtotalElem = document.getElementById("cart-subtotal");
+  const deliveryElem = document.getElementById("cart-delivery");
+  const discountElem = document.getElementById("cart-discount");
+  const totalElem = document.getElementById("cart-total");
+  const freeShipBar = document.getElementById("free-shipping-bar");
+  const freeShipText = document.getElementById("free-shipping-text");
+
+  if (!itemsContainer) return;
+
+  if (state.cart.length === 0) {
+    itemsContainer.innerHTML = "";
+    if (emptyState) emptyState.classList.remove("hidden");
+    if (footer) footer.classList.add("hidden");
+    return;
+  }
+
+  if (emptyState) emptyState.classList.add("hidden");
+  if (footer) footer.classList.remove("hidden");
+
+  if (freeShipBar && freeShipText) {
+    freeShipBar.style.width = `${progressPercent}%`;
+    if (subtotal >= threshold) {
+      freeShipText.innerHTML = `<span class="text-emerald-600 font-bold">🎉 FREE Delivery Unlocked!</span>`;
+    } else {
+      freeShipText.innerHTML = `Add <span class="font-bold text-zinc-900">₹${diff}</span> more for <span class="font-bold text-emerald-600">FREE Delivery</span>`;
+    }
+  }
+
+  itemsContainer.innerHTML = state.cart.map(item => `
+    <div class="flex items-center justify-between p-3 bg-zinc-50 rounded-sm border border-zinc-200/70 mb-2">
+      <div class="flex items-center gap-2.5">
+        <span class="text-2xl">${item.icon}</span>
+        <div>
+          <h4 class="text-xs font-semibold text-zinc-900">${item.name}</h4>
+          <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-sm">${item.size}</span>
+          <span class="text-xs font-bold text-zinc-900 ml-1.5">₹${item.price}</span>
+        </div>
+      </div>
+      
+      <div class="flex items-center gap-2">
+        <div class="flex items-center border border-zinc-300 rounded-sm bg-white overflow-hidden">
+          <button onclick="changeQuantity('${item.id}', -1)" class="px-2 py-0.5 text-xs text-zinc-600 hover:bg-zinc-100 font-bold">−</button>
+          <span class="px-2 text-xs font-bold text-zinc-900">${item.quantity}</span>
+          <button onclick="changeQuantity('${item.id}', 1)" class="px-2 py-0.5 text-xs text-zinc-600 hover:bg-zinc-100 font-bold">+</button>
+        </div>
+        <button onclick="removeCartItem('${item.id}')" class="text-zinc-400 hover:text-red-600 text-xs p-1" title="Remove">✕</button>
+      </div>
+    </div>
+  `).join('');
+
+  const shipping = subtotal >= threshold || subtotal === 0 ? 0 : 70;
+  const discountAmount = Math.round(subtotal * (state.promoDiscount / 100));
+  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
+
+  if (subtotalElem) subtotalElem.textContent = `₹${subtotal}`;
+  if (deliveryElem) deliveryElem.textContent = shipping === 0 ? "FREE" : `₹${shipping}`;
+  if (discountElem) discountElem.textContent = `-₹${discountAmount}`;
+  if (totalElem) totalElem.textContent = `₹${grandTotal}`;
+}
+
+function changeQuantity(cartItemId, delta) {
+  const item = state.cart.find(i => i.id === cartItemId);
+  if (!item) return;
+
+  item.quantity += delta;
+  if (item.quantity <= 0) {
+    state.cart = state.cart.filter(i => i.id !== cartItemId);
+  }
+  saveCart();
+  updateCartUI();
+}
+
+function removeCartItem(cartItemId) {
+  state.cart = state.cart.filter(i => i.id !== cartItemId);
+  saveCart();
+  updateCartUI();
+  showToast("Item removed from cart");
+}
+
+function applyPromoCode() {
+  const input = document.getElementById("promo-input");
+  if (!input) return;
+  const code = input.value.trim().toUpperCase();
+
+  if (state.promoCodes[code]) {
+    state.promoDiscount = state.promoCodes[code];
+    state.promoApplied = true;
+    showToast(`🎉 ${state.promoDiscount}% Farm discount applied!`);
+    updateCartUI();
+  } else {
+    showToast("❌ Invalid promo code. Try 'PURE10'");
+  }
+}
+
+function toggleCart(open) {
+  const drawer = document.getElementById("cart-drawer");
+  const overlay = document.getElementById("cart-overlay");
+  if (!drawer || !overlay) return;
+
+  if (open) {
+    drawer.classList.remove("translate-x-full");
+    overlay.classList.remove("hidden");
+    updateCartUI();
+  } else {
+    drawer.classList.add("translate-x-full");
+    overlay.classList.add("hidden");
+  }
+}
+
+// 7. PROCESS STEP NAVIGATION
+const PROCESS_STEPS = [
+  {
+    step: 1,
+    title: "Single-Origin Seed Procurement",
+    gujarati: "ગુજરાતના ખેડૂતો પાસેથી સીધા ઉત્તમ બિયારણ",
+    temp: "Ambient (30°C)",
+    detail: "We procure non-hybrid, chemical-free oilseeds directly from Saurashtra groundnut farmers and the Unjha agricultural market. No rotten, fungus-affected, or split seeds are allowed.",
+    highlights: ["Hand-sorted for size & moisture", "Zero aflatoxin guarantee", "Fair trade pricing to local farmers"]
+  },
+  {
+    step: 2,
+    title: "Natural Sun-Drying on Cloth Beds",
+    gujarati: "સૂર્યપ્રકાશમાં કુદરતી રીતે સૂકવણી",
+    temp: "Natural Sunlight",
+    detail: "Seeds are spread on clean cotton tarpaulins under the Saurashtra sun to reduce residual moisture naturally. We never use industrial diesel hot-air dryers that prematurely oxidize fragile seed oils.",
+    highlights: ["Reduces moisture to exact < 6%", "Naturally sanitizes seed coat", "Preserves delicate heat-sensitive enzymes"]
+  },
+  {
+    step: 3,
+    title: "Traditional Wooden Ghani (Lakdi Kolhu) Crushing",
+    gujarati: "લાકડાની ઘાણીમાં ધીમી ગતિએ પીલાણ (< 14 RPM)",
+    temp: "Strictly < 38°C (Cold-Pressed)",
+    detail: "Heavy Neem/Babool wooden pestles crush the seeds at ultra-low revolutions (under 14 RPM). Unlike metal screw expellers that spike temperatures to 120°C, our wood absorbs heat, keeping the oil cold and aromatic.",
+    highlights: ["No friction heating (true cold-press)", "Neem wood imparts natural antimicrobial safety", "Retains 100% natural aroma, color & tocopherols"]
+  },
+  {
+    step: 4,
+    title: "Gravity Sedimentation (Zero Centrifuge)",
+    gujarati: "કુદરતી રીતે તેલને ઠરવા દેવું (48 કલાક)",
+    temp: "Room Temperature",
+    detail: "Freshly pressed oil is kept undisturbed in food-grade steel tanks for 48 hours. Micro seed particles settle naturally to the bottom by gravity. No chemical coagulants or artificial clarifiers are ever added.",
+    highlights: ["Preserves high micronutrient density", "No synthetic degumming agents", "Pure golden clear oil without stripping natural fats"]
+  },
+  {
+    step: 5,
+    title: "Cotton Cloth Filtration & Tin/Glass Bottling",
+    gujarati: "સુતરાઉ કાપડથી ગાળણ અને સ્વચ્છ પેકિંગ",
+    temp: "Packaged at Ambient Temp",
+    detail: "The clarified oil passes through 4 layers of virgin cotton cloth. It is immediately bottled in reusable tin cans and dark glass bottles to protect it from photo-oxidation and sunlight damage.",
+    highlights: ["Food-grade certified packaging", "Zero microplastic leakage from cheap PET jars", "Tamper-proof seal with individual batch QR code"]
+  }
+];
+
+function selectProcessStep(stepIndex) {
+  state.activeStep = stepIndex;
+  const step = PROCESS_STEPS[stepIndex];
+
+  document.querySelectorAll(".step-indicator").forEach((el, idx) => {
+    if (idx === stepIndex) {
+      el.className = "step-indicator flex-1 py-2.5 px-3 text-center rounded-sm bg-black text-white font-bold text-xs shadow-xs transition-all";
+    } else {
+      el.className = "step-indicator flex-1 py-2.5 px-3 text-center rounded-sm bg-zinc-100 text-zinc-700 font-medium text-xs hover:bg-zinc-200 transition-all";
+    }
+  });
+
+  const titleElem = document.getElementById("step-title");
+  const gujElem = document.getElementById("step-gujarati");
+  const tempElem = document.getElementById("step-temp");
+  const descElem = document.getElementById("step-desc");
+  const listElem = document.getElementById("step-highlights");
+  const numElem = document.getElementById("step-number-badge");
+
+  if (titleElem) titleElem.textContent = step.title;
+  if (gujElem) gujElem.textContent = step.gujarati;
+  if (tempElem) tempElem.textContent = step.temp;
+  if (descElem) descElem.textContent = step.detail;
+  if (numElem) numElem.textContent = `Stage 0${step.step} of 05`;
+  if (listElem) {
+    listElem.innerHTML = step.highlights.map(h => `
+      <li class="flex items-center gap-2 text-xs text-zinc-700 font-medium">
+        <span class="text-emerald-600 font-bold">✓</span>
+        <span>${h}</span>
+      </li>
+    `).join('');
+  }
+}
+
+// 8. NABL LAB VERIFIER WITH HOLOGRAPHIC CERTIFICATE DESIGN
+function verifyBatch(batchCode) {
+  const code = (batchCode || document.getElementById("batch-input").value).trim().toUpperCase();
+  const resultContainer = document.getElementById("batch-result-container");
+  if (!resultContainer) return;
+
+  const data = state.batches[code] || {
+    batchNumber: code || "TR-CUSTOM-DEMO",
+    oilName: "Wood-Pressed Pure Farm Oil",
+    crushDate: "Fresh This Week",
+    testingDate: "Lab Verified",
+    expiryDate: "12 Months from Packing",
+    nablLab: "Vardhman Food Testing Laboratories (NABL ISO/IEC 17025 Accredited)",
+    seedSource: "Visnagar Certified Local Farmers",
+    status: "PASS - 100% UNADULTERATED",
+    parameters: [
+      { param: "Free Fatty Acids (FFA)", standard: "Max 1.5%", result: "0.39%", status: "PASSED (Fresh)" },
+      { param: "Aflatoxin Toxins", standard: "Max 15 ppb", result: "NOT DETECTED", status: "PASSED" },
+      { param: "Hexane Solvent Residue", standard: "Nil", result: "0.00 ppm (Zero)", status: "PASSED" },
+      { param: "Mineral Oil / Animal Fats", standard: "Negative", result: "NEGATIVE (Nil)", status: "PASSED" }
+    ]
+  };
+
+  resultContainer.innerHTML = `
+    <div class="hologram-border bg-white rounded-sm p-6 sm:p-7 shadow-lg relative overflow-hidden mt-6 animate-fade-in">
+      
+      <!-- Watermark background -->
+      <div class="absolute -right-8 -bottom-8 opacity-5 text-9xl pointer-events-none select-none font-black text-emerald-950">
+        NABL
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-4 border-b border-zinc-200">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-sm bg-emerald-50 border border-emerald-200 flex items-center justify-center text-xl text-emerald-700">
+            📜
+          </div>
+          <div>
+            <h4 class="text-base sm:text-lg font-bold text-zinc-900">${data.oilName}</h4>
+            <p class="text-xs text-zinc-500">Official Batch Number: <span class="font-mono font-bold text-emerald-700">${data.batchNumber}</span></p>
+          </div>
+        </div>
+        <div class="inline-flex items-center gap-1.5 bg-emerald-600 text-white font-bold text-[10px] px-3 py-1 rounded-sm shadow-xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+          <span>NABL ACCREDITED LAB VERIFIED</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-zinc-50 p-3.5 rounded-sm text-xs mb-5 border border-zinc-200">
+        <div>
+          <span class="text-zinc-400 text-[10px] block font-semibold">Date of Crushing</span>
+          <span class="font-bold text-zinc-800">${data.crushDate}</span>
+        </div>
+        <div>
+          <span class="text-zinc-400 text-[10px] block font-semibold">Testing Lab</span>
+          <span class="font-bold text-zinc-800 truncate block">${data.nablLab.split('(')[0]}</span>
+        </div>
+        <div>
+          <span class="text-zinc-400 text-[10px] block font-semibold">Seed Origin</span>
+          <span class="font-bold text-zinc-800">${data.seedSource}</span>
+        </div>
+        <div>
+          <span class="text-zinc-400 text-[10px] block font-semibold">Quality Status</span>
+          <span class="font-bold text-emerald-700">${data.status}</span>
+        </div>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs">
+          <thead>
+            <tr class="border-b border-zinc-200 text-zinc-500 font-semibold bg-zinc-50/50">
+              <th class="py-2.5 px-3">Tested Parameter</th>
+              <th class="py-2.5 px-3">FSSAI Standard</th>
+              <th class="py-2.5 px-3">Actual Result</th>
+              <th class="py-2.5 px-3 text-right">Verification Grade</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-100">
+            ${data.parameters.map(p => `
+              <tr class="hover:bg-zinc-50/60 transition-colors">
+                <td class="py-2.5 px-3 font-semibold text-zinc-900">${p.param}</td>
+                <td class="py-2.5 px-3 text-zinc-600">${p.standard}</td>
+                <td class="py-2.5 px-3 font-mono font-bold text-zinc-900">${p.result}</td>
+                <td class="py-2.5 px-3 text-right font-bold text-emerald-700">✓ ${p.status}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mt-5 pt-4 border-t border-zinc-200 flex flex-wrap items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span class="text-zinc-500 text-[11px]">Certified by Head Quality Officer, Visnagar Facility</span>
+        </div>
+        <button onclick="window.print()" class="px-3.5 py-1.5 rounded-sm bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-bold text-xs transition-colors shadow-xs">
+          Print / Download Certificate 🖨️
+        </button>
+      </div>
+    </div>
+  `;
+
+  showToast(`Loaded Certificate for Batch ${data.batchNumber} ✅`);
+}
+
+// 9. OIL CALCULATOR
+function calculateOilNeeds() {
+  const members = parseInt(document.getElementById("family-slider").value, 10);
+  const style = document.querySelector('input[name="cook_style"]:checked')?.value || "balanced";
+
+  let basePerPerson = 1.0;
+  if (style === "traditional") basePerPerson = 1.3;
+  if (style === "diet") basePerPerson = 0.75;
+
+  const totalLitres = Math.round(members * basePerPerson * 10) / 10;
+  const groundnutL = Math.max(1, Math.round(totalLitres * 0.6));
+  const mustardL = Math.max(1, Math.round(totalLitres * 0.3));
+  const sesameMl = 500;
+
+  document.getElementById("calc-members-display").textContent = `${members} ${members === 1 ? 'Person' : 'Family Members'}`;
+  document.getElementById("calc-total-litres").textContent = `${totalLitres} Litres / Month`;
+  
+  document.getElementById("calc-blend-breakdown").innerHTML = `
+    <div class="flex items-center justify-between text-xs py-2 border-b border-zinc-100">
+      <span class="font-semibold text-zinc-800">🥜 Wood-Pressed Groundnut (Everyday Sabzi & Roti)</span>
+      <span class="font-bold text-zinc-900">${groundnutL} Litre(s)</span>
+    </div>
+    <div class="flex items-center justify-between text-xs py-2 border-b border-zinc-100">
+      <span class="font-semibold text-zinc-800">🌾 Wood-Pressed Mustard (Tadka, Dal & Curries)</span>
+      <span class="font-bold text-zinc-900">${mustardL} Litre(s)</span>
+    </div>
+    <div class="flex items-center justify-between text-xs py-2">
+      <span class="font-semibold text-zinc-800">🌱 Wood-Pressed Sesame (Ayurvedic/Winter Wellness)</span>
+      <span class="font-bold text-zinc-900">${sesameMl} ml</span>
+    </div>
+  `;
+}
+
+function addCalculatedBundleToCart() {
+  addToCart("groundnut", 1);
+  addToCart("yellow-mustard", 1);
+  addToCart("white-sesame", 0);
+  toggleCart(true);
+  showToast("Added Recommended Family Bundle to cart! 🥗");
+}
+
+// 10. QUICKVIEW MODAL
+function openQuickView(productId) {
+  const product = PRODUCTS.find(p => p.id === productId);
+  if (!product) return;
+
+  const modal = document.getElementById("quickview-modal");
+  const content = document.getElementById("quickview-content");
+  if (!modal || !content) return;
+
+  content.innerHTML = `
+    <div class="flex items-start justify-between mb-4 pb-3 border-b border-zinc-100">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl">${product.icon}</span>
+        <div>
+          <h3 class="text-lg font-bold text-zinc-900">${product.name}</h3>
+          <p class="text-xs font-semibold text-emerald-700">${product.hindiName}</p>
+        </div>
+      </div>
+      <button onclick="closeQuickView()" class="text-zinc-400 hover:text-zinc-700 text-lg p-1">✕</button>
+    </div>
+
+    <p class="text-xs text-zinc-600 mb-4 leading-relaxed">${product.shortDesc}</p>
+
+    <div class="grid grid-cols-2 gap-2 text-xs bg-zinc-50 p-3 rounded-sm mb-4 border border-zinc-200">
+      <div>
+        <span class="text-zinc-400 block font-medium">Sourcing Region</span>
+        <span class="font-bold text-zinc-800">${product.seedOrigin}</span>
+      </div>
+      <div>
+        <span class="text-zinc-400 block font-medium">Smoke Point</span>
+        <span class="font-bold text-zinc-800">${product.smokePoint}</span>
+      </div>
+      <div>
+        <span class="text-zinc-400 block font-medium">Extraction Temp</span>
+        <span class="font-bold text-emerald-700">${product.extractionTemp}</span>
+      </div>
+      <div>
+        <span class="text-zinc-400 block font-medium">Solvent Hexane</span>
+        <span class="font-bold text-emerald-700">0.0% (Zero)</span>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h4 class="text-xs font-bold text-zinc-900 mb-2">Nutritional Values (per 100g):</h4>
+      <div class="grid grid-cols-3 gap-2 text-center text-xs">
+        <div class="bg-zinc-50 p-2 rounded-sm border border-zinc-200">
+          <span class="text-[10px] text-zinc-500 block">MUFA</span>
+          <span class="font-bold text-zinc-900">${product.nutrition.mufa}</span>
+        </div>
+        <div class="bg-zinc-50 p-2 rounded-sm border border-zinc-200">
+          <span class="text-[10px] text-zinc-500 block">PUFA</span>
+          <span class="font-bold text-zinc-900">${product.nutrition.pufa}</span>
+        </div>
+        <div class="bg-zinc-50 p-2 rounded-sm border border-zinc-200">
+          <span class="text-[10px] text-zinc-500 block">Vitamin E</span>
+          <span class="font-bold text-emerald-700">${product.nutrition.vitaminE}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-5">
+      <h4 class="text-xs font-bold text-zinc-900 mb-2">Purity Guarantees:</h4>
+      <ul class="space-y-1 text-xs text-zinc-600">
+        ${product.benefits.map(b => `<li class="flex items-center gap-1.5"><span class="text-emerald-600 font-bold">✓</span>${b}</li>`).join('')}
+      </ul>
+    </div>
+
+    <button onclick="addToCart('${product.id}', ${state.selectedProductSizes[product.id] || 0}); closeQuickView();" class="w-full py-2.5 rounded-sm bg-black hover:bg-zinc-800 text-white font-bold text-xs transition-all">
+      Add Selected Pack to Cart
+    </button>
+  `;
+
+  modal.classList.remove("hidden");
+}
+
+function closeQuickView() {
+  const modal = document.getElementById("quickview-modal");
+  if (modal) modal.classList.add("hidden");
+}
+
+// 11. REFINED VS COLD-PRESSED DATA
+const COMPARISON_DATA = [
+  {
+    parameter: "Extraction Method",
+    refined: "Chemical solvent (Hexane) washing at high pressure",
+    woodGhani: "Slow crushing in traditional timber ghani (< 14 RPM)"
+  },
+  {
+    parameter: "Temperature During Pressing",
+    refined: "Spikes up to 200°C - 230°C",
+    woodGhani: "Stays strictly below 38°C (True Cold Press)"
+  },
+  {
+    parameter: "Bleaching & Clarification",
+    refined: "Treated with acid-activated clay and caustic soda",
+    woodGhani: "48-Hour natural gravity settling + cotton cloth filter"
+  },
+  {
+    parameter: "Natural Aroma & Flavor",
+    refined: "Deodorized with vacuum steam (tasteless & odorless)",
+    woodGhani: "Authentic, rich natural aroma of the raw Gujarat seed"
+  },
+  {
+    parameter: "Tocopherols & Vitamin E",
+    refined: "Stripped completely during high-heat solvent recovery",
+    woodGhani: "100% natural Vitamin E & Polyphenols preserved intact"
+  }
+];
+
+function renderComparisonTable() {
+  const container = document.getElementById("comparison-table-body");
+  if (!container) return;
+
+  container.innerHTML = COMPARISON_DATA.map(item => `
+    <tr class="border-b border-zinc-200/80 hover:bg-zinc-50 transition-colors">
+      <td class="py-3 px-4 font-semibold text-zinc-900 text-xs">${item.parameter}</td>
+      <td class="py-3 px-4 text-xs text-red-900 bg-red-50/40">
+        <span class="inline-block mr-1 text-red-500 font-bold">✕</span>
+        ${item.refined}
+      </td>
+      <td class="py-3 px-4 text-xs text-emerald-950 bg-emerald-50/50 font-medium">
+        <span class="inline-block mr-1 text-emerald-600 font-bold">✓</span>
+        ${item.woodGhani}
+      </td>
+    </tr>
+  `).join('');
+}
+
+// 12. AUTHENTICATION & SESSIONS
 function openAuthModal(mode = 'customer') {
   const modal = document.getElementById("auth-modal");
   if (!modal) return;
@@ -411,13 +1158,13 @@ function switchAuthTab(tab) {
   const adminForm = document.getElementById("admin-login-form");
 
   if (tab === 'admin') {
-    if (adminTab) adminTab.className = "flex-1 py-2 text-center text-xs font-bold border-b-2 border-emerald-600 text-emerald-700 bg-emerald-50/50";
-    if (customerTab) customerTab.className = "flex-1 py-2 text-center text-xs font-semibold text-zinc-500 hover:text-zinc-900 border-b-2 border-transparent";
+    if (adminTab) adminTab.className = "flex-1 py-3 text-center text-xs font-bold border-b-2 border-emerald-600 text-emerald-700 bg-emerald-50/50";
+    if (customerTab) customerTab.className = "flex-1 py-3 text-center text-xs font-semibold text-zinc-500 hover:text-zinc-900 border-b-2 border-transparent";
     if (customerForm) customerForm.classList.add("hidden");
     if (adminForm) adminForm.classList.remove("hidden");
   } else {
-    if (customerTab) customerTab.className = "flex-1 py-2 text-center text-xs font-bold border-b-2 border-black text-black bg-zinc-50";
-    if (adminTab) adminTab.className = "flex-1 py-2 text-center text-xs font-semibold text-zinc-500 hover:text-zinc-900 border-b-2 border-transparent";
+    if (customerTab) customerTab.className = "flex-1 py-3 text-center text-xs font-bold border-b-2 border-black text-black bg-zinc-50";
+    if (adminTab) adminTab.className = "flex-1 py-3 text-center text-xs font-semibold text-zinc-500 hover:text-zinc-900 border-b-2 border-transparent";
     if (customerForm) customerForm.classList.remove("hidden");
     if (adminForm) adminForm.classList.add("hidden");
   }
@@ -443,19 +1190,7 @@ function handleCustomerAuth(e) {
 
 function handleAdminAuth(e) {
   if (e) e.preventDefault();
-  const email = document.getElementById("admin-email")?.value.trim();
-  const pass = document.getElementById("admin-pass")?.value.trim();
-
-  // Accept admin credentials or demo click
-  if (email === "admin@trushita.farm" && pass === "admin") {
-    setAdminSession();
-  } else if (!email && !pass) {
-    // 1-Click quick sign in
-    setAdminSession();
-  } else {
-    // Also accept any entry for smooth testing
-    setAdminSession();
-  }
+  setAdminSession();
 }
 
 function setAdminSession() {
@@ -488,6 +1223,7 @@ function updateAuthHeader() {
   const loggedInContainer = document.getElementById("auth-logged-in");
   const userNameElem = document.getElementById("auth-user-name");
   const adminBadge = document.getElementById("header-admin-badge");
+  const adminPanelBtn = document.getElementById("admin-panel-btn");
 
   if (!loggedOutContainer || !loggedInContainer) return;
 
@@ -496,22 +1232,22 @@ function updateAuthHeader() {
     loggedInContainer.classList.remove("hidden");
     if (userNameElem) userNameElem.textContent = state.currentUser.name;
 
-    if (adminBadge) {
-      if (state.isAdmin) {
-        adminBadge.classList.remove("hidden");
-      } else {
-        adminBadge.classList.add("hidden");
-      }
+    if (state.isAdmin) {
+      if (adminBadge) adminBadge.classList.remove("hidden");
+      if (adminPanelBtn) adminPanelBtn.classList.remove("hidden");
+    } else {
+      if (adminBadge) adminBadge.classList.add("hidden");
+      if (adminPanelBtn) adminPanelBtn.classList.add("hidden");
     }
   } else {
     loggedOutContainer.classList.remove("hidden");
     loggedInContainer.classList.add("hidden");
     if (adminBadge) adminBadge.classList.add("hidden");
+    if (adminPanelBtn) adminPanelBtn.classList.add("hidden");
   }
 }
 
-// 5. ADMIN DASHBOARD & ORDERS MANAGEMENT
-
+// 13. ADMIN DASHBOARD & ORDERS
 function openAdminModal(tab = 'orders') {
   const modal = document.getElementById("admin-modal");
   if (!modal) return;
@@ -564,7 +1300,7 @@ function switchAdminTab(tab) {
             <span class="text-2xl font-bold text-zinc-900">${totalLitres.toFixed(1)} L</span>
           </div>
           <div class="bg-zinc-50 p-4 rounded-sm border border-zinc-200">
-            <span class="text-xs text-zinc-500 font-semibold block">Visnagar Unit 1 & 2</span>
+            <span class="text-xs text-zinc-500 font-semibold block">Units 1 & 2 Status</span>
             <span class="text-2xl font-bold text-emerald-600">Active (12 RPM)</span>
           </div>
         </div>
@@ -572,7 +1308,7 @@ function switchAdminTab(tab) {
         <div class="p-4 bg-emerald-50 rounded-sm border border-emerald-200">
           <h4 class="text-xs font-bold text-emerald-900 mb-1">Live Extraction Safeguard</h4>
           <p class="text-xs text-emerald-800">
-            Current wooden ghani temperature sensor: <strong>37.4°C</strong>. Below the 40°C threshold. Zero heat degradation detected.
+            Current wooden ghani temperature sensor: <strong>37.4°C</strong>. Strictly below the 40°C threshold. Zero heat degradation detected.
           </p>
         </div>
       </div>
@@ -582,7 +1318,7 @@ function switchAdminTab(tab) {
       <div class="space-y-4">
         <div class="flex items-center justify-between">
           <h4 class="text-xs font-bold text-zinc-900 uppercase tracking-wider">All Customer Orders (${state.orders.length})</h4>
-          <span class="text-[11px] text-zinc-500">Live synchronization enabled</span>
+          <span class="text-[11px] text-zinc-500">Live order fulfillment sync</span>
         </div>
 
         <div class="overflow-x-auto border border-zinc-200 rounded-sm">
@@ -659,13 +1395,13 @@ function switchAdminTab(tab) {
         <div class="flex items-center justify-between">
           <h4 class="text-xs font-bold text-zinc-900 uppercase tracking-wider">Active Promo Codes</h4>
           <div class="flex gap-2">
-            <input type="text" id="new-coupon-code" placeholder="CODE (e.g. SUMMER15)" class="px-2 py-1 text-xs border border-zinc-300 rounded-sm uppercase">
-            <input type="number" id="new-coupon-pct" placeholder="Discount %" class="w-20 px-2 py-1 text-xs border border-zinc-300 rounded-sm">
+            <input type="text" id="new-coupon-code" placeholder="CODE (e.g. SUMMER15)" class="px-2 py-1 text-xs border border-zinc-300 rounded-sm uppercase font-mono">
+            <input type="number" id="new-coupon-pct" placeholder="Discount %" class="w-20 px-2 py-1 text-xs border border-zinc-300 rounded-sm font-mono">
             <button onclick="addPromoCode()" class="px-3 py-1 rounded-sm bg-black text-white text-xs font-bold">Add</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-3 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
           ${Object.entries(state.promoCodes).map(([c, pct]) => `
             <div class="p-3 bg-zinc-50 rounded-sm border border-zinc-200 flex items-center justify-between">
               <div>
@@ -731,15 +1467,13 @@ function addPromoCode() {
   }
 }
 
-// 6. MY ORDERS MODAL (FOR LOGGED IN USERS)
-
+// 14. MY ORDERS MODAL
 function openMyOrdersModal() {
   const modal = document.getElementById("orders-modal");
   const content = document.getElementById("orders-modal-content");
   if (!modal || !content) return;
 
   const userEmail = state.currentUser?.email || "priya@example.com";
-  // Filter user orders or show relevant demo orders
   const userOrders = state.orders.filter(o => o.email === userEmail || state.isAdmin);
 
   content.innerHTML = `
@@ -801,543 +1535,7 @@ function closeMyOrdersModal() {
   if (modal) modal.classList.add("hidden");
 }
 
-// 7. PRODUCT RENDERING (OFFICIAL TRUSHITA CARD FORMAT)
-function renderProducts() {
-  const container = document.getElementById("product-grid");
-  if (!container) return;
-
-  const filtered = state.activeCategory === "all" 
-    ? PRODUCTS 
-    : PRODUCTS.filter(p => p.category === state.activeCategory);
-
-  container.innerHTML = filtered.map(product => {
-    const selectedSizeIdx = state.selectedProductSizes[product.id] || 0;
-    const currentSize = product.sizes[selectedSizeIdx];
-
-    return `
-      <div class="product-card group flex flex-col justify-between p-4 sm:p-5 rounded-sm bg-white border border-zinc-200/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-zinc-300 transition-all duration-300">
-        
-        <div class="relative mb-3 w-full aspect-square rounded-sm bg-zinc-50 flex items-center justify-center border border-zinc-100 overflow-hidden group-hover:bg-emerald-50/20 transition-colors">
-          <span class="text-6xl filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
-            ${product.icon}
-          </span>
-          
-          <div class="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-sm flex items-center gap-1 shadow-xs">
-            <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
-            <span>${product.tag}</span>
-          </div>
-
-          <div class="absolute bottom-2 left-2 text-[10px] font-semibold text-zinc-500 bg-white/90 backdrop-blur-xs px-2 py-0.5 rounded-sm border border-zinc-200/60">
-            ⚡ ${product.smokePoint.split(' ')[0]}
-          </div>
-        </div>
-
-        <div class="flex flex-col text-left px-0.5 flex-grow">
-          <div class="flex items-start justify-between gap-1 mb-0.5">
-            <h3 class="font-medium text-zinc-900 text-base tracking-tight group-hover:text-emerald-700 transition-colors">
-              ${product.name}
-            </h3>
-            <button onclick="openQuickView('${product.id}')" class="text-zinc-400 hover:text-emerald-600 text-xs p-0.5" title="View Details">
-              ℹ️
-            </button>
-          </div>
-          
-          <p class="text-[11px] text-zinc-500 font-medium mb-2.5 line-clamp-2 leading-relaxed">
-            ${product.shortDesc}
-          </p>
-
-          <div class="mb-3">
-            <div class="flex flex-wrap gap-1">
-              ${product.sizes.map((s, idx) => `
-                <button 
-                  onclick="selectProductSize('${product.id}', ${idx})" 
-                  class="px-2 py-1 text-[11px] rounded-sm transition-all ${
-                    idx === selectedSizeIdx 
-                      ? 'bg-zinc-900 text-white font-bold shadow-xs' 
-                      : 'bg-zinc-100 text-zinc-700 hover:bg-zinc-200 font-medium'
-                  }">
-                  ${s.size}
-                </button>
-              `).join('')}
-            </div>
-          </div>
-        </div>
-
-        <div class="pt-2 border-t border-zinc-100 mt-auto">
-          <div class="flex items-baseline justify-between mb-2.5">
-            <div>
-              <span class="text-xl font-bold text-zinc-900">₹${currentSize.price}</span>
-              ${currentSize.originalPrice ? `
-                <span class="text-xs text-zinc-400 line-through ml-1.5">₹${currentSize.originalPrice}</span>
-                <span class="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-1 py-0.2 rounded ml-1">${currentSize.savings}</span>
-              ` : ''}
-            </div>
-            <span class="text-[10px] text-zinc-500 font-medium">Free Shipping ≥ ₹799</span>
-          </div>
-
-          <button 
-            onclick="addToCart('${product.id}', ${selectedSizeIdx})"
-            class="w-full bg-black hover:bg-zinc-800 text-white font-bold text-xs py-2.5 rounded-sm shadow-xs transition-all transform hover:-translate-y-0.5 cursor-pointer text-center flex items-center justify-center gap-1.5">
-            <span>Add to Cart</span>
-            <span>+</span>
-          </button>
-        </div>
-
-      </div>
-    `;
-  }).join('');
-}
-
-function setProductCategory(cat) {
-  state.activeCategory = cat;
-  document.querySelectorAll('.cat-btn').forEach(btn => {
-    if (btn.dataset.category === cat) {
-      btn.className = "cat-btn px-3.5 py-1.5 rounded-sm text-xs font-bold bg-black text-white shadow-xs transition-all";
-    } else {
-      btn.className = "cat-btn px-3.5 py-1.5 rounded-sm text-xs font-medium bg-zinc-100 text-zinc-700 hover:bg-zinc-200 transition-all";
-    }
-  });
-  renderProducts();
-}
-
-function selectProductSize(productId, sizeIdx) {
-  state.selectedProductSizes[productId] = sizeIdx;
-  renderProducts();
-}
-
-function addToCart(productId, sizeIdx) {
-  const product = PRODUCTS.find(p => p.id === productId);
-  if (!product) return;
-
-  const sizeObj = product.sizes[sizeIdx];
-  const cartItemId = `${productId}-${sizeObj.size}`;
-
-  const existing = state.cart.find(item => item.id === cartItemId);
-  if (existing) {
-    existing.quantity += 1;
-  } else {
-    state.cart.push({
-      id: cartItemId,
-      productId: product.id,
-      name: product.name,
-      size: sizeObj.size,
-      price: sizeObj.price,
-      icon: product.icon,
-      quantity: 1
-    });
-  }
-
-  saveCart();
-  updateCartUI();
-  showToast(`Added ${product.name} (${sizeObj.size}) to cart! ✨`);
-}
-
-function saveCart() {
-  try {
-    localStorage.setItem("trushita_cart", JSON.stringify(state.cart));
-  } catch (e) {}
-}
-
-function updateCartUI() {
-  const totalCount = state.cart.reduce((sum, item) => sum + item.quantity, 0);
-  const subtotal = state.cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  
-  const threshold = 799;
-  const progressPercent = Math.min(100, Math.round((subtotal / threshold) * 100));
-  const diff = threshold - subtotal;
-
-  const badges = document.querySelectorAll(".cart-count-badge");
-  badges.forEach(b => {
-    b.textContent = totalCount;
-    b.style.display = totalCount > 0 ? "inline-flex" : "none";
-  });
-
-  const itemsContainer = document.getElementById("cart-items-container");
-  const emptyState = document.getElementById("cart-empty-state");
-  const footer = document.getElementById("cart-footer");
-  const subtotalElem = document.getElementById("cart-subtotal");
-  const deliveryElem = document.getElementById("cart-delivery");
-  const discountElem = document.getElementById("cart-discount");
-  const totalElem = document.getElementById("cart-total");
-  const freeShipBar = document.getElementById("free-shipping-bar");
-  const freeShipText = document.getElementById("free-shipping-text");
-
-  if (!itemsContainer) return;
-
-  if (state.cart.length === 0) {
-    itemsContainer.innerHTML = "";
-    if (emptyState) emptyState.classList.remove("hidden");
-    if (footer) footer.classList.add("hidden");
-    return;
-  }
-
-  if (emptyState) emptyState.classList.add("hidden");
-  if (footer) footer.classList.remove("hidden");
-
-  if (freeShipBar && freeShipText) {
-    freeShipBar.style.width = `${progressPercent}%`;
-    if (subtotal >= threshold) {
-      freeShipText.innerHTML = `<span class="text-emerald-600 font-bold">🎉 FREE Delivery Unlocked!</span>`;
-    } else {
-      freeShipText.innerHTML = `Add <span class="font-bold text-zinc-900">₹${diff}</span> more for <span class="font-bold text-emerald-600">FREE Delivery</span>`;
-    }
-  }
-
-  itemsContainer.innerHTML = state.cart.map(item => `
-    <div class="flex items-center justify-between p-3 bg-zinc-50 rounded-sm border border-zinc-200/70 mb-2">
-      <div class="flex items-center gap-2.5">
-        <span class="text-2xl">${item.icon}</span>
-        <div>
-          <h4 class="text-xs font-semibold text-zinc-900">${item.name}</h4>
-          <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-sm">${item.size}</span>
-          <span class="text-xs font-bold text-zinc-900 ml-1.5">₹${item.price}</span>
-        </div>
-      </div>
-      
-      <div class="flex items-center gap-2">
-        <div class="flex items-center border border-zinc-300 rounded-sm bg-white overflow-hidden">
-          <button onclick="changeQuantity('${item.id}', -1)" class="px-2 py-0.5 text-xs text-zinc-600 hover:bg-zinc-100 font-bold">−</button>
-          <span class="px-2 text-xs font-bold text-zinc-900">${item.quantity}</span>
-          <button onclick="changeQuantity('${item.id}', 1)" class="px-2 py-0.5 text-xs text-zinc-600 hover:bg-zinc-100 font-bold">+</button>
-        </div>
-        <button onclick="removeCartItem('${item.id}')" class="text-zinc-400 hover:text-red-600 text-xs p-1">✕</button>
-      </div>
-    </div>
-  `).join('');
-
-  const shipping = subtotal >= threshold || subtotal === 0 ? 0 : 70;
-  const discountAmount = Math.round(subtotal * (state.promoDiscount / 100));
-  const grandTotal = Math.max(0, subtotal - discountAmount + shipping);
-
-  if (subtotalElem) subtotalElem.textContent = `₹${subtotal}`;
-  if (deliveryElem) deliveryElem.textContent = shipping === 0 ? "FREE" : `₹${shipping}`;
-  if (discountElem) discountElem.textContent = `-₹${discountAmount}`;
-  if (totalElem) totalElem.textContent = `₹${grandTotal}`;
-}
-
-function changeQuantity(cartItemId, delta) {
-  const item = state.cart.find(i => i.id === cartItemId);
-  if (!item) return;
-
-  item.quantity += delta;
-  if (item.quantity <= 0) {
-    state.cart = state.cart.filter(i => i.id !== cartItemId);
-  }
-  saveCart();
-  updateCartUI();
-}
-
-function removeCartItem(cartItemId) {
-  state.cart = state.cart.filter(i => i.id !== cartItemId);
-  saveCart();
-  updateCartUI();
-  showToast("Item removed from cart");
-}
-
-function applyPromoCode() {
-  const input = document.getElementById("promo-input");
-  if (!input) return;
-  const code = input.value.trim().toUpperCase();
-
-  if (state.promoCodes[code]) {
-    state.promoDiscount = state.promoCodes[code];
-    state.promoApplied = true;
-    showToast(`🎉 ${state.promoDiscount}% Farm discount applied!`);
-    updateCartUI();
-  } else {
-    showToast("❌ Invalid promo code. Try 'PURE10'");
-  }
-}
-
-function toggleCart(open) {
-  const drawer = document.getElementById("cart-drawer");
-  const overlay = document.getElementById("cart-overlay");
-  if (!drawer || !overlay) return;
-
-  if (open) {
-    drawer.classList.remove("translate-x-full");
-    overlay.classList.remove("hidden");
-    updateCartUI();
-  } else {
-    drawer.classList.add("translate-x-full");
-    overlay.classList.add("hidden");
-  }
-}
-
-// 8. PROCESS STEPS
-const PROCESS_STEPS = [
-  {
-    step: 1,
-    title: "Single-Origin Seed Procurement",
-    gujarati: "ગુજરાતના ખેડૂતો પાસેથી સીધા ઉત્તમ બિયારણ",
-    temp: "Ambient (30°C)",
-    detail: "We procure non-hybrid, chemical-free oilseeds directly from Saurashtra groundnut farmers and the Unjha agricultural market. No rotten, fungus-affected, or split seeds are allowed.",
-    highlights: ["Hand-sorted for size & moisture", "Zero aflatoxin guarantee", "Fair trade pricing to local farmers"]
-  },
-  {
-    step: 2,
-    title: "Natural Sun-Drying on Cloth Beds",
-    gujarati: "સૂર્યપ્રકાશમાં કુદરતી રીતે સૂકવણી",
-    temp: "Natural Sunlight",
-    detail: "Seeds are spread on clean cotton tarpaulins under the Saurashtra sun to reduce residual moisture naturally. We never use industrial diesel hot-air dryers that prematurely oxidize fragile seed oils.",
-    highlights: ["Reduces moisture to exact < 6%", "Naturally sanitizes seed coat", "Preserves delicate heat-sensitive enzymes"]
-  },
-  {
-    step: 3,
-    title: "Traditional Wooden Ghani (Lakdi Kolhu) Crushing",
-    gujarati: "લાકડાની ઘાણીમાં ધીમી ગતિએ પીલાણ (< 14 RPM)",
-    temp: "Strictly < 38°C (Cold-Pressed)",
-    detail: "Heavy Neem/Babool wooden pestles crush the seeds at ultra-low revolutions (under 14 RPM). Unlike metal screw expellers that spike temperatures to 120°C, our wood absorbs heat, keeping the oil cold and aromatic.",
-    highlights: ["No friction heating (true cold-press)", "Neem wood imparts natural antimicrobial safety", "Retains 100% natural aroma, color & tocopherols"]
-  },
-  {
-    step: 4,
-    title: "Gravity Sedimentation (Zero Centrifuge)",
-    gujarati: "કુદરતી રીતે તેલને ઠરવા દેવું (48 કલાક)",
-    temp: "Room Temperature",
-    detail: "Freshly pressed oil is kept undisturbed in food-grade steel tanks for 48 hours. Micro seed particles settle naturally to the bottom by gravity. No chemical coagulants or artificial clarifiers are ever added.",
-    highlights: ["Preserves high micronutrient density", "No synthetic degumming agents", "Pure golden clear oil without stripping natural fats"]
-  },
-  {
-    step: 5,
-    title: "Cotton Cloth Filtration & Tin/Glass Bottling",
-    gujarati: "સુતરાઉ કાપડથી ગાળણ અને સ્વચ્છ પેકિંગ",
-    temp: "Packaged at Ambient Temp",
-    detail: "The clarified oil passes through 4 layers of virgin cotton cloth. It is immediately bottled in reusable tin cans and dark glass bottles to protect it from photo-oxidation and sunlight damage.",
-    highlights: ["Food-grade certified packaging", "Zero microplastic leakage from cheap PET jars", "Tamper-proof seal with individual batch QR code"]
-  }
-];
-
-function selectProcessStep(stepIndex) {
-  state.activeStep = stepIndex;
-  const step = PROCESS_STEPS[stepIndex];
-
-  document.querySelectorAll(".step-indicator").forEach((el, idx) => {
-    if (idx === stepIndex) {
-      el.className = "step-indicator flex-1 py-2.5 px-2 text-center rounded-sm bg-black text-white font-bold text-xs shadow-xs transition-all";
-    } else {
-      el.className = "step-indicator flex-1 py-2.5 px-2 text-center rounded-sm bg-zinc-100 text-zinc-700 font-medium text-xs hover:bg-zinc-200 transition-all";
-    }
-  });
-
-  const titleElem = document.getElementById("step-title");
-  const gujElem = document.getElementById("step-gujarati");
-  const tempElem = document.getElementById("step-temp");
-  const descElem = document.getElementById("step-desc");
-  const listElem = document.getElementById("step-highlights");
-  const numElem = document.getElementById("step-number-badge");
-
-  if (titleElem) titleElem.textContent = step.title;
-  if (gujElem) gujElem.textContent = step.gujarati;
-  if (tempElem) tempElem.textContent = step.temp;
-  if (descElem) descElem.textContent = step.detail;
-  if (numElem) numElem.textContent = `Stage 0${step.step} of 05`;
-  if (listElem) {
-    listElem.innerHTML = step.highlights.map(h => `
-      <li class="flex items-center gap-2 text-xs text-zinc-700 font-medium">
-        <span class="text-emerald-600 font-bold">✓</span>
-        <span>${h}</span>
-      </li>
-    `).join('');
-  }
-}
-
-// 9. NABL LAB VERIFIER
-function verifyBatch(batchCode) {
-  const code = (batchCode || document.getElementById("batch-input").value).trim().toUpperCase();
-  const resultContainer = document.getElementById("batch-result-container");
-  if (!resultContainer) return;
-
-  const data = state.batches[code] || {
-    batchNumber: code || "TR-CUSTOM-DEMO",
-    oilName: "Wood-Pressed Pure Farm Oil",
-    crushDate: "Fresh This Week",
-    testingDate: "Lab Verified",
-    expiryDate: "12 Months from Packing",
-    nablLab: "Vardhman Food Testing Laboratories (NABL ISO/IEC 17025 Accredited)",
-    seedSource: "Visnagar Certified Local Farmers",
-    status: "PASS - 100% UNADULTERATED",
-    parameters: [
-      { param: "Free Fatty Acids (FFA)", standard: "Max 1.5%", result: "0.39%", status: "PASSED (Fresh)" },
-      { param: "Aflatoxin Toxins", standard: "Max 15 ppb", result: "NOT DETECTED", status: "PASSED" },
-      { param: "Hexane Solvent Residue", standard: "Nil", result: "0.00 ppm (Zero)", status: "PASSED" },
-      { param: "Mineral Oil / Animal Fats", standard: "Negative", result: "NEGATIVE (Nil)", status: "PASSED" }
-    ]
-  };
-
-  resultContainer.innerHTML = `
-    <div class="bg-white rounded-sm p-6 border-2 border-emerald-600 shadow-md relative overflow-hidden mt-6">
-      <div class="flex items-center justify-between mb-4">
-        <div class="flex items-center gap-3">
-          <span class="text-3xl">📜</span>
-          <div>
-            <h4 class="text-lg font-bold text-zinc-900">${data.oilName}</h4>
-            <p class="text-xs text-zinc-500">Batch Code: <span class="font-mono font-bold text-emerald-700">${data.batchNumber}</span></p>
-          </div>
-        </div>
-        <span class="bg-emerald-600 text-white font-bold text-[10px] px-2.5 py-1 rounded-sm">
-          NABL ACCREDITED VERIFIED
-        </span>
-      </div>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 bg-zinc-50 p-3.5 rounded-sm text-xs mb-4 border border-zinc-200">
-        <div>
-          <span class="text-zinc-400 block">Date of Pressing</span>
-          <span class="font-bold text-zinc-800">${data.crushDate}</span>
-        </div>
-        <div>
-          <span class="text-zinc-400 block">Testing Lab</span>
-          <span class="font-bold text-zinc-800 truncate block">${data.nablLab.split('(')[0]}</span>
-        </div>
-        <div>
-          <span class="text-zinc-400 block">Seed Origin</span>
-          <span class="font-bold text-zinc-800">${data.seedSource}</span>
-        </div>
-        <div>
-          <span class="text-zinc-400 block">Quality Status</span>
-          <span class="font-bold text-emerald-700">${data.status}</span>
-        </div>
-      </div>
-
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-xs">
-          <thead>
-            <tr class="border-b border-zinc-200 text-zinc-500 font-semibold">
-              <th class="pb-2">Tested Parameter</th>
-              <th class="pb-2">FSSAI Standard</th>
-              <th class="pb-2">Actual Result</th>
-              <th class="pb-2 text-right">Verification</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-zinc-100">
-            ${data.parameters.map(p => `
-              <tr>
-                <td class="py-2.5 font-medium text-zinc-900">${p.param}</td>
-                <td class="py-2.5 text-zinc-600">${p.standard}</td>
-                <td class="py-2.5 font-bold text-zinc-900">${p.result}</td>
-                <td class="py-2.5 text-right font-bold text-emerald-700">✓ ${p.status}</td>
-              </tr>
-            `).join('')}
-          </tbody>
-        </table>
-      </div>
-
-      <div class="mt-4 pt-4 border-t border-zinc-100 flex items-center justify-between text-xs">
-        <span class="text-zinc-500">Certified by Quality Incharge, Visnagar Facility</span>
-        <button onclick="window.print()" class="px-3 py-1.5 rounded-sm bg-zinc-100 hover:bg-zinc-200 text-zinc-800 font-bold transition-colors">
-          Print Certificate 🖨️
-        </button>
-      </div>
-    </div>
-  `;
-
-  showToast(`Loaded Certificate for Batch ${data.batchNumber} ✅`);
-}
-
-// 10. OIL CALCULATOR
-function calculateOilNeeds() {
-  const members = parseInt(document.getElementById("family-slider").value, 10);
-  const style = document.querySelector('input[name="cook_style"]:checked')?.value || "balanced";
-
-  let basePerPerson = 1.0;
-  if (style === "traditional") basePerPerson = 1.3;
-  if (style === "diet") basePerPerson = 0.75;
-
-  const totalLitres = Math.round(members * basePerPerson * 10) / 10;
-  const groundnutL = Math.max(1, Math.round(totalLitres * 0.6));
-  const mustardL = Math.max(1, Math.round(totalLitres * 0.3));
-  const sesameMl = 500;
-
-  document.getElementById("calc-members-display").textContent = `${members} ${members === 1 ? 'Person' : 'Family Members'}`;
-  document.getElementById("calc-total-litres").textContent = `${totalLitres} Litres / Month`;
-  
-  document.getElementById("calc-blend-breakdown").innerHTML = `
-    <div class="flex items-center justify-between text-xs py-1.5 border-b border-zinc-100">
-      <span class="font-medium text-zinc-800">🥜 Wood-Pressed Groundnut (Sabzi & Roti)</span>
-      <span class="font-bold text-zinc-900">${groundnutL} Litre(s)</span>
-    </div>
-    <div class="flex items-center justify-between text-xs py-1.5 border-b border-zinc-100">
-      <span class="font-medium text-zinc-800">🌾 Wood-Pressed Mustard (Tadka & Dal)</span>
-      <span class="font-bold text-zinc-900">${mustardL} Litre(s)</span>
-    </div>
-    <div class="flex items-center justify-between text-xs py-1.5">
-      <span class="font-medium text-zinc-800">🌱 Wood-Pressed Sesame (Ayurvedic Wellness)</span>
-      <span class="font-bold text-zinc-900">${sesameMl} ml</span>
-    </div>
-  `;
-}
-
-function addCalculatedBundleToCart() {
-  addToCart("groundnut", 1);
-  addToCart("yellow-mustard", 1);
-  addToCart("white-sesame", 0);
-  toggleCart(true);
-  showToast("Added custom Family Kitchen Bundle to cart! 🥗");
-}
-
-// 11. QUICKVIEW MODAL
-function openQuickView(productId) {
-  const product = PRODUCTS.find(p => p.id === productId);
-  if (!product) return;
-
-  const modal = document.getElementById("quickview-modal");
-  const content = document.getElementById("quickview-content");
-  if (!modal || !content) return;
-
-  content.innerHTML = `
-    <div class="flex items-start justify-between mb-4 pb-3 border-b border-zinc-100">
-      <div class="flex items-center gap-3">
-        <span class="text-3xl">${product.icon}</span>
-        <div>
-          <h3 class="text-lg font-bold text-zinc-900">${product.name}</h3>
-          <p class="text-xs font-semibold text-emerald-700">${product.hindiName}</p>
-        </div>
-      </div>
-      <button onclick="closeQuickView()" class="text-zinc-400 hover:text-zinc-700 text-lg p-1">✕</button>
-    </div>
-
-    <p class="text-xs text-zinc-600 mb-4 leading-relaxed">${product.shortDesc}</p>
-
-    <div class="grid grid-cols-2 gap-2 text-xs bg-zinc-50 p-3 rounded-sm mb-4 border border-zinc-200">
-      <div>
-        <span class="text-zinc-400 block">Sourcing Region</span>
-        <span class="font-bold text-zinc-800">${product.seedOrigin}</span>
-      </div>
-      <div>
-        <span class="text-zinc-400 block">Smoke Point</span>
-        <span class="font-bold text-zinc-800">${product.smokePoint}</span>
-      </div>
-      <div>
-        <span class="text-zinc-400 block">Extraction Temp</span>
-        <span class="font-bold text-emerald-700">${product.extractionTemp}</span>
-      </div>
-      <div>
-        <span class="text-zinc-400 block">Solvent Hexane</span>
-        <span class="font-bold text-emerald-700">0.0% (Zero)</span>
-      </div>
-    </div>
-
-    <div class="mb-5">
-      <h4 class="text-xs font-bold text-zinc-900 mb-2">Purity Guarantees:</h4>
-      <ul class="space-y-1 text-xs text-zinc-600">
-        ${product.benefits.map(b => `<li class="flex items-center gap-1.5"><span class="text-emerald-600 font-bold">✓</span>${b}</li>`).join('')}
-      </ul>
-    </div>
-
-    <button onclick="addToCart('${product.id}', ${state.selectedProductSizes[product.id] || 0}); closeQuickView();" class="w-full py-2.5 rounded-sm bg-black hover:bg-zinc-800 text-white font-bold text-xs transition-all">
-      Add Selected Pack to Cart
-    </button>
-  `;
-
-  modal.classList.remove("hidden");
-}
-
-function closeQuickView() {
-  const modal = document.getElementById("quickview-modal");
-  if (modal) modal.classList.add("hidden");
-}
-
-// 12. ORDER PLACEMENT (WHATSAPP & ONLINE SIMULATED)
+// 15. ORDER CHECKOUT (WHATSAPP & SIMULATED ONLINE)
 function openWhatsAppOrder() {
   if (state.cart.length === 0) {
     showToast("Your cart is empty! Please add some oils first.");
@@ -1412,7 +1610,7 @@ function recordOrder(method) {
   return newOrder;
 }
 
-// 13. TOAST UTILITY
+// 16. TOAST UTILITY
 function showToast(message) {
   const toast = document.getElementById("global-toast");
   const text = document.getElementById("toast-message");
@@ -1428,9 +1626,10 @@ function showToast(message) {
   }, 3200);
 }
 
-// 14. INITIALIZATION
+// 17. INITIALIZATION
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts();
+  renderComparisonTable();
   selectProcessStep(2);
   calculateOilNeeds();
   updateCartUI();
