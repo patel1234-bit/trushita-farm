@@ -1,8 +1,13 @@
-/* Trushita Farm - Elevated Modern D2C Styling & Dynamic Animations
- * Matching the real website color scheme: Emerald-600, Jet Black, Zinc-50/100/200/900/950
+/* Trushita Farm - Multi-Page Modern D2C Styling & Dynamic Animations
+ * Official Brand Palette: Emerald-600 (#059669), Jet Black (#09090B), Zinc-50/100/200/900/950, White
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* Native Cross-Page View Transitions API (smooth multi-page morphing in modern browsers) */
+@view-transition {
+  navigation: auto;
+}
 
 :root {
   --primary: #059669;          /* Official Emerald-600 */
@@ -10,16 +15,16 @@
   --primary-dark: #047857;     /* Emerald-700 */
   --primary-deep: #064E3B;     /* Emerald-900 */
   --accent-green: #34D399;     /* Emerald-400 */
-  
+
   --bg-main: #FFFFFF;
   --bg-subtle: #FAFAFA;        /* Zinc-50 */
   --bg-card: #FFFFFF;
   --bg-dark: #09090B;          /* Zinc-950 */
-  
+
   --text-main: #09090B;        /* Jet Black */
   --text-muted: #71717A;       /* Zinc-500 */
   --text-subtle: #A1A1AA;      /* Zinc-400 */
-  
+
   --border-light: #E4E4E7;     /* Zinc-200 */
   --border-dark: #27272A;      /* Zinc-800 */
 }
@@ -37,7 +42,7 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Subtle architectural dot grid pattern for technical purity feel */
+/* Subtle architectural dot grid pattern */
 .bg-grid-pattern {
   background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
@@ -129,6 +134,18 @@ body {
   animation: float 4s ease-in-out infinite;
 }
 
+/* Scroll Reveal Animation */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Card Hover 3D Shift */
 .product-card {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
@@ -155,36 +172,7 @@ body {
   animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Shimmer Loading / Accent Animation */
-@keyframes shimmer {
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.shimmer-badge {
-  position: relative;
-  overflow: hidden;
-}
-
-.shimmer-badge::after {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform: translateX(-100%);
-  background-image: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0,
-    rgba(255, 255, 255, 0.3) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  animation: shimmer 2.5s infinite;
-  content: '';
-}
-
-/* Holographic NABL Certificate Stamp */
+/* Holographic NABL Certificate Border */
 .hologram-border {
   border: 2px solid transparent;
   background: linear-gradient(white, white) padding-box,
@@ -214,14 +202,6 @@ input[type=range]::-webkit-slider-thumb {
 input[type=range]::-webkit-slider-thumb:hover {
   transform: scale(1.15);
   background: #047857;
-}
-
-/* Glassmorphism panel */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(228, 228, 231, 0.8);
 }
 
 /* Navbar Scroll & Dropdown Transitions */

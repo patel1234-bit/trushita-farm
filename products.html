@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oils Store | Trushita Natural Food</title>
+  <link rel="icon" type="image/svg+xml" href="trushita.svg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+              400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
+              800: '#065f46', 900: '#064e3b', 950: '#022c22'
+            },
+            zinc: {
+              50: '#fafafa', 100: '#f4f4f5', 200: '#e4e4e7', 300: '#d4d4d8',
+              400: '#a1a1aa', 500: '#71717a', 600: '#52525b', 700: '#3f3f46',
+              800: '#27272a', 900: '#18181b', 950: '#09090b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="products" class="bg-white text-zinc-900 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+  <div id="site-shell-header"></div>
+
+  <!-- Page Hero Header -->
+  <section class="py-12 bg-zinc-50 border-b border-zinc-200 bg-grid-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+            Fresh Wood-Pressed Catalog
+          </span>
+          <h1 class="text-3xl sm:text-4xl font-black text-black tracking-tight mt-3 mb-2">
+            Our Pure Wood-Pressed Oils Store
+          </h1>
+          <p class="text-xs sm:text-sm text-zinc-600 max-w-xl">
+            Every bottle is crushed in small batches at our Visnagar facility using traditional Babool wooden ghanis. Select your preferred packaging size below.
+          </p>
+        </div>
+
+        <div class="flex flex-wrap gap-3 items-center">
+          <div class="w-full sm:w-64 relative">
+            <input 
+              type="text" 
+              id="product-search-input"
+              oninput="handleSearch(this.value)"
+              placeholder="Search groundnut, mustard, sesame..."
+              class="w-full px-3.5 py-2.5 pl-9 text-xs rounded-sm border border-zinc-300 focus:outline-hidden focus:ring-1 focus:ring-emerald-600 bg-white">
+            <span class="absolute left-3 top-2.5 text-zinc-400 text-xs">🔍</span>
+          </div>
+
+          <select onchange="handleSort(this.value)" class="px-3 py-2.5 text-xs font-semibold rounded-sm border border-zinc-300 bg-white text-zinc-800 focus:outline-hidden focus:ring-1 focus:ring-emerald-600">
+            <option value="featured">Sort: Featured</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Customer Rated</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Catalog -->
+  <section class="py-14 bg-white border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center justify-between gap-4 mb-8">
+        <div class="flex flex-wrap gap-1.5">
+          <button data-category="all" onclick="setProductCategory('all')" class="cat-btn px-3.5 py-1.5 rounded-sm text-xs font-bold bg-black text-white shadow-xs transition-all">
+            All Oils (7)
+          </button>
+          <button data-category="cooking" onclick="setProductCategory('cooking')" class="cat-btn px-3.5 py-1.5 rounded-sm text-xs font-medium bg-zinc-100 text-zinc-700 hover:bg-zinc-200 transition-all">
+            Daily Cooking (3)
+          </button>
+          <button data-category="wellness" onclick="setProductCategory('wellness')" class="cat-btn px-3.5 py-1.5 rounded-sm text-xs font-medium bg-zinc-100 text-zinc-700 hover:bg-zinc-200 transition-all">
+            Ayurvedic &amp; Wellness (3)
+          </button>
+          <button data-category="bundles" onclick="setProductCategory('bundles')" class="cat-btn px-3.5 py-1.5 rounded-sm text-xs font-medium bg-zinc-100 text-zinc-700 hover:bg-zinc-200 transition-all">
+            Discovery Boxes 🎁 (1)
+          </button>
+        </div>
+
+        <a href="calculator.html" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline">
+          Not sure how much you need? Try the Oil Calculator →
+        </a>
+      </div>
+
+      <div id="product-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <div id="site-shell-footer"></div>
+  <div id="site-shell-overlays"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

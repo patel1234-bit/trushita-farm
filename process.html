@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wood-Ghani Process &amp; Heritage | Trushita Natural Food</title>
+  <link rel="icon" type="image/svg+xml" href="trushita.svg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 300: '#6ee7b7',
+              400: '#34d399', 500: '#10b981', 600: '#059669', 700: '#047857',
+              800: '#065f46', 900: '#064e3b', 950: '#022c22'
+            },
+            zinc: {
+              50: '#fafafa', 100: '#f4f4f5', 200: '#e4e4e7', 300: '#d4d4d8',
+              400: '#a1a1aa', 500: '#71717a', 600: '#52525b', 700: '#3f3f46',
+              800: '#27272a', 900: '#18181b', 950: '#09090b'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="process" class="bg-white text-zinc-900 antialiased selection:bg-emerald-100 selection:text-emerald-900">
+
+  <div id="site-shell-header"></div>
+
+  <!-- Page Header -->
+  <section class="py-12 bg-zinc-50 border-b border-zinc-200 bg-grid-pattern">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+        The Craft of Pure Oil
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-black mt-3 mb-2">
+        5-Stage Traditional Wood-Ghani Extraction
+      </h1>
+      <p class="text-xs sm:text-sm text-zinc-600 max-w-2xl mx-auto">
+        Zero chemical solvents. Zero artificial bleaching. Inspect how we preserve living nutrition from Gujarat oilseeds to your kitchen.
+      </p>
+    </div>
+  </section>
+
+  <!-- 5-Stage Process Pipeline -->
+  <section class="py-14 bg-white border-b border-zinc-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap gap-1.5 mb-6 max-w-4xl mx-auto">
+        <button onclick="selectProcessStep(0)" class="step-indicator flex-1 py-2.5 px-3 text-center rounded-sm bg-zinc-100 text-zinc-700 font-medium text-xs hover:bg-zinc-200 transition-all">
+          01. Seed Sourcing
+        </button>
+        <button onclick="selectProcessStep(1)" class="step-indicator flex-1 py-2.5 px-3 text-center rounded-sm bg-zinc-100 text-zinc-700 font-medium text-xs hover:bg-zinc-200 transition-all">
+          02. Sun Drying
+        </button>
+        <button onclick="selectProcessStep(2)" class="step-indicator flex-1 py-2.5 px-3 text-center rounded-sm bg-black text-white font-bold text-xs shadow-xs transition-all">
+          03. Wood Ghani
+        </button>
+        <button onclick="selectProcessStep(3)" class="step-indicator flex-1 py-2.5 px-3 text-center rounded-sm bg-zinc-100 text-zinc-700 font-medium text-xs hover:bg-zinc-200 transition-all">
+          04. Sedimentation
+        </button>
+        <button onclick="selectProcessStep(4)" class="step-indicator flex-1 py-2.5 px-3 text-center rounded-sm bg-zinc-100 text-zinc-700 font-medium text-xs hover:bg-zinc-200 transition-all">
+          05. Cotton Filter
+        </button>
+      </div>
+
+      <div class="bg-zinc-50 rounded-sm p-6 sm:p-8 border border-zinc-200 shadow-sm max-w-4xl mx-auto">
+        <div class="flex items-center justify-between mb-3 pb-3 border-b border-zinc-200">
+          <span id="step-number-badge" class="px-2.5 py-0.5 rounded-sm text-[10px] font-bold bg-black text-white">
+            Stage 03 of 05
+          </span>
+          <div class="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-sm">
+            <span id="step-method">Babool Timber Kolhu • 12 RPM</span>
+          </div>
+        </div>
+
+        <h2 id="step-title" class="text-xl font-bold text-zinc-900 mb-1">
+          Traditional Wooden Ghani (Lakdi Kolhu) Crushing
+        </h2>
+        <p id="step-gujarati" class="text-xs font-medium text-emerald-700 mb-3">
+          લાકડાની ઘાણીમાં ધીમી ગતિએ પીલાણ (12 RPM)
+        </p>
+
+        <p id="step-desc" class="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-5">
+          Heavy Neem and Babool wooden pestles crush the seeds at ultra-low revolutions (12 RPM). Unlike harsh industrial steel screw expellers, natural timber presses gently, preserving authentic aroma and natural antioxidants.
+        </p>
+
+        <div class="bg-white p-4 rounded-sm border border-zinc-200">
+          <h3 class="text-[10px] font-bold text-zinc-400 uppercase tracking-wider mb-2">Stage Highlights:</h3>
+          <ul id="step-highlights" class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <!-- Populated by app.js -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Refined vs Wood-Pressed Reality Check -->
+  <section class="py-16 bg-zinc-50 border-b border-zinc-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 reveal-up">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+          The Hidden Difference
+        </span>
+        <h2 class="text-2xl md:text-3xl tracking-tight mb-2 text-black font-extrabold mt-2">
+          Factory Refined Oil vs. Trushita Wood-Pressed
+        </h2>
+        <p class="text-xs sm:text-sm text-zinc-500">
+          Supermarket oils look crystal-clear not because they are pure, but because they are chemically bleached and stripped of natural nutrients.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-sm border border-zinc-200 overflow-hidden shadow-xs">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="bg-zinc-900 text-white text-xs sm:text-sm font-bold">
+                <th class="py-3.5 px-4 sm:px-6">Parameter</th>
+                <th class="py-3.5 px-4 sm:px-6 bg-red-950/80 text-red-200">⚠️ Factory Refined Oils</th>
+                <th class="py-3.5 px-4 sm:px-6 bg-emerald-950 text-emerald-200">🌿 Trushita Wood-Pressed Oil</th>
+              </tr>
+            </thead>
+            <tbody id="comparison-table-body" class="divide-y divide-zinc-200 bg-white">
+              <!-- Populated by app.js -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visnagar Roots Story -->
+  <section class="py-16 bg-white border-b border-zinc-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 reveal-up">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+            Visnagar, Gujarat Heritage
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-black tracking-tight">
+            Born Near Unjha — Asia's Premier Agricultural Seed Hub
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+            Trushita Natural Food operates in <strong>Visnagar, Mehsana district</strong>, minutes away from the famous Unjha APMC market. Rather than sourcing bulk tankers of anonymous oil, we directly inspect and procure whole oilseeds from Gujarat farming cooperatives.
+          </p>
+          <div class="pt-2">
+            <a href="products.html" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-black hover:bg-zinc-800 text-white text-xs font-bold transition-all">
+              <span>Shop Fresh Harvest Oils</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 bg-zinc-950 text-zinc-300 p-7 rounded-sm border border-zinc-800">
+          <span class="text-[10px] uppercase tracking-widest text-emerald-400 font-bold block mb-2">Our Purity Pledge</span>
+          <h3 class="text-xl font-bold text-white mb-5">
+            "Pure Single-Seed Oils With Full NABL Batch Traceability."
+          </h3>
+          <ul class="space-y-3 text-xs">
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span><strong>Zero Palm Oil Blending:</strong> 100% single-origin seeds with no cheap fillers.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span><strong>48-Hour Gravity Settling:</strong> Natural clarification without centrifugal chemical agents.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span><strong>Lab Report Verification:</strong> Check any bottle batch directly on our Lab Reports page.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-shell-footer"></div>
+  <div id="site-shell-overlays"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
