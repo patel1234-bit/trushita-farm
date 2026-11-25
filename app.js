@@ -675,6 +675,11 @@ function updateCartUI() {
     b.style.display = totalCount > 0 ? "inline-flex" : "none";
   });
 
+  const headerCartLabel = document.getElementById("header-cart-label");
+  if (headerCartLabel) {
+    headerCartLabel.textContent = subtotal > 0 ? `₹${subtotal}` : "Cart";
+  }
+
   const itemsContainer = document.getElementById("cart-items-container");
   const emptyState = document.getElementById("cart-empty-state");
   const footer = document.getElementById("cart-footer");
@@ -1222,6 +1227,10 @@ function updateAuthHeader() {
   const loggedOutContainer = document.getElementById("auth-logged-out");
   const loggedInContainer = document.getElementById("auth-logged-in");
   const userNameElem = document.getElementById("auth-user-name");
+  const avatarElem = document.getElementById("auth-avatar-initials");
+  const dropName = document.getElementById("dropdown-user-fullname");
+  const dropEmail = document.getElementById("dropdown-user-email");
+  const dropOrdersCount = document.getElementById("dropdown-orders-count");
   const adminBadge = document.getElementById("header-admin-badge");
   const adminPanelBtn = document.getElementById("admin-panel-btn");
 
@@ -1230,7 +1239,16 @@ function updateAuthHeader() {
   if (state.currentUser) {
     loggedOutContainer.classList.add("hidden");
     loggedInContainer.classList.remove("hidden");
-    if (userNameElem) userNameElem.textContent = state.currentUser.name;
+
+    const name = state.currentUser.name || "User";
+    const initials = name.split(" ").map(n => n[0]).join("").substring(0, 2).toUpperCase();
+    if (userNameElem) userNameElem.textContent = name;
+    if (avatarElem) avatarElem.textContent = initials;
+    if (dropName) dropName.textContent = name;
+    if (dropEmail) dropEmail.textContent = state.currentUser.email || "";
+
+    const userOrdersCount = state.orders.filter(o => o.email === state.currentUser.email || state.isAdmin).length;
+    if (dropOrdersCount) dropOrdersCount.textContent = userOrdersCount;
 
     if (state.isAdmin) {
       if (adminBadge) adminBadge.classList.remove("hidden");
@@ -1242,8 +1260,101 @@ function updateAuthHeader() {
   } else {
     loggedOutContainer.classList.remove("hidden");
     loggedInContainer.classList.add("hidden");
+    closeUserMenu();
     if (adminBadge) adminBadge.classList.add("hidden");
     if (adminPanelBtn) adminPanelBtn.classList.add("hidden");
+  }
+}
+
+// Navbar interactive helpers (Dropdown, Mobile Drawer, Scroll-Spy, Search Jump)
+function toggleUserMenu(e) {
+  if (e) e.stopPropagation();
+  const menu = document.getElementById("user-dropdown-menu");
+  if (menu) menu.classList.toggle("hidden");
+}
+
+function closeUserMenu() {
+  const menu = document.getElementById("user-dropdown-menu");
+  if (menu) menu.classList.add("hidden");
+}
+
+function toggleMobileMenu(forceState) {
+  const drawer = document.getElementById("mobile-nav-drawer");
+  const openIcon = document.getElementById("mobile-menu-icon-open");
+  const closeIcon = document.getElementById("mobile-menu-icon-close");
+  if (!drawer) return;
+
+  const isCurrentlyHidden = drawer.classList.contains("hidden");
+  const shouldOpen = typeof forceState === "boolean" ? forceState : isCurrentlyHidden;
+
+  if (shouldOpen) {
+    drawer.classList.remove("hidden");
+    if (openIcon) openIcon.classList.add("hidden");
+    if (closeIcon) closeIcon.classList.remove("hidden");
+  } else {
+    drawer.classList.add("hidden");
+    if (openIcon) openIcon.classList.remove("hidden");
+    if (closeIcon) closeIcon.classList.add("hidden");
+  }
+}
+
+function focusProductSearch() {
+  const productsSec = document.getElementById("products");
+  const searchInput = document.getElementById("product-search-input");
+  if (productsSec) productsSec.scrollIntoView({ behavior: "smooth" });
+  setTimeout(() => {
+    if (searchInput) searchInput.focus();
+  }, 450);
+}
+
+function initNavbarBehavior() {
+  const header = document.getElementById("main-header");
+  const headerInner = document.getElementById("header-inner");
+
+  window.addEventListener("scroll", () => {
+    if (!header || !headerInner) return;
+    if (window.scrollY > 24) {
+      header.classList.add("shadow-sm", "bg-white/95");
+      header.classList.remove("bg-white/85");
+      headerInner.classList.replace("h-[72px]", "h-[64px]");
+    } else {
+      header.classList.remove("shadow-sm", "bg-white/95");
+      header.classList.add("bg-white/85");
+      headerInner.classList.replace("h-[64px]", "h-[72px]");
+    }
+  }, { passive: true });
+
+  // Close user dropdown on outside click
+  document.addEventListener("click", (e) => {
+    const loggedIn = document.getElementById("auth-logged-in");
+    if (loggedIn && !loggedIn.contains(e.target)) {
+      closeUserMenu();
+    }
+  });
+
+  // Scroll-Spy for segmented pill nav
+  const navLinks = document.querySelectorAll(".nav-link-pill");
+  const sections = ["products", "why-choose", "comparison", "process", "verification", "calculator"]
+    .map(id => document.getElementById(id))
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window && sections.length > 0) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            if (link.dataset.nav === id) {
+              link.classList.add("active");
+            } else {
+              link.classList.remove("active");
+            }
+          });
+        }
+      });
+    }, { rootMargin: "-30% 0px -55% 0px" });
+
+    sections.forEach(sec => observer.observe(sec));
   }
 }
 
@@ -1634,6 +1745,7 @@ document.addEventListener("DOMContentLoaded", () => {
   calculateOilNeeds();
   updateCartUI();
   updateAuthHeader();
+  initNavbarBehavior();
 
   const slider = document.getElementById("family-slider");
   if (slider) slider.addEventListener("input", calculateOilNeeds);

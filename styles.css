@@ -223,3 +223,58 @@ input[type=range]::-webkit-slider-thumb:hover {
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(228, 228, 231, 0.8);
 }
+
+/* Navbar Scroll & Dropdown Transitions */
+.nav-link-pill {
+  position: relative;
+  transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-link-pill.active {
+  background-color: #FFFFFF;
+  color: #09090B;
+  font-weight: 700;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(228, 228, 231, 0.7);
+}
+
+.nav-link-pill.active::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 2px;
+  border-radius: 9999px;
+  background-color: #059669;
+}
+
+@keyframes dropdownReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-dropdown {
+  animation: dropdownReveal 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes mobileDrawerDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-mobile-drawer {
+  animation: mobileDrawerDown 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
