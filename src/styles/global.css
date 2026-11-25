@@ -1,32 +1,16 @@
-/* Trushita Farm - Multi-Page Modern D2C Styling & Dynamic Animations
- * Official Brand Palette: Emerald-600 (#059669), Jet Black (#09090B), Zinc-50/100/200/900/950, White
+@import "tailwindcss";
+
+/* Trushita Natural Food - Astro + Tailwind v4 Global Styles
+ * Exact Official Brand Palette: Emerald-600 (#059669), Jet Black (#09090B), Zinc-50/100/200/900/950, White
  */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-
-/* Native Cross-Page View Transitions API (smooth multi-page morphing in modern browsers) */
-@view-transition {
-  navigation: auto;
-}
-
 :root {
-  --primary: #059669;          /* Official Emerald-600 */
-  --primary-light: #10B981;    /* Emerald-500 */
-  --primary-dark: #047857;     /* Emerald-700 */
-  --primary-deep: #064E3B;     /* Emerald-900 */
-  --accent-green: #34D399;     /* Emerald-400 */
-
+  --primary: #059669;
+  --primary-light: #10B981;
+  --primary-dark: #047857;
   --bg-main: #FFFFFF;
-  --bg-subtle: #FAFAFA;        /* Zinc-50 */
-  --bg-card: #FFFFFF;
-  --bg-dark: #09090B;          /* Zinc-950 */
-
-  --text-main: #09090B;        /* Jet Black */
-  --text-muted: #71717A;       /* Zinc-500 */
-  --text-subtle: #A1A1AA;      /* Zinc-400 */
-
-  --border-light: #E4E4E7;     /* Zinc-200 */
-  --border-dark: #27272A;      /* Zinc-800 */
+  --bg-subtle: #FAFAFA;
+  --text-main: #09090B;
 }
 
 body {
@@ -42,18 +26,13 @@ body {
   font-family: 'JetBrains Mono', monospace;
 }
 
-/* Subtle architectural dot grid pattern */
+/* Architectural dot grid */
 .bg-grid-pattern {
   background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
-.bg-grid-pattern-dark {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Custom Scrollbar in Emerald */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -68,7 +47,7 @@ body {
   background: #047857;
 }
 
-/* Ambient Oil Drip Physics Animation */
+/* Oil Drip Physics Animation */
 @keyframes oilDrip {
   0% {
     transform: translateY(-12px) scale(0.8);
@@ -96,7 +75,6 @@ body {
   animation: oilDrip 2.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-/* Ghani Mechanics Spin */
 @keyframes ghaniSpin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
@@ -110,7 +88,6 @@ body {
   animation: ghaniSpin 28s linear infinite reverse;
 }
 
-/* Emerald Glow Pulse */
 @keyframes pulseEmerald {
   0%, 100% {
     box-shadow: 0 0 15px rgba(5, 150, 105, 0.2);
@@ -124,29 +101,6 @@ body {
   animation: pulseEmerald 3s ease-in-out infinite;
 }
 
-/* Subtle float animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-6px); }
-}
-
-.animate-float {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* Scroll Reveal Animation */
-.reveal-up {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1), transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal-up.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Card Hover 3D Shift */
 .product-card {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
 }
@@ -156,7 +110,6 @@ body {
   box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(5, 150, 105, 0.25);
 }
 
-/* Toast Notification Animation */
 @keyframes slideInUp {
   from {
     transform: translate(-50%, 100%);
@@ -169,17 +122,15 @@ body {
 }
 
 .toast-animate {
-  animation: slideInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideInUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Holographic NABL Certificate Border */
 .hologram-border {
   border: 2px solid transparent;
   background: linear-gradient(white, white) padding-box,
               linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%) border-box;
 }
 
-/* Custom Range Slider styling */
 input[type=range] {
   -webkit-appearance: none;
   background: #E4E4E7;
@@ -204,7 +155,6 @@ input[type=range]::-webkit-slider-thumb:hover {
   background: #047857;
 }
 
-/* Navbar Scroll & Dropdown Transitions */
 .nav-link-pill {
   position: relative;
   transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;

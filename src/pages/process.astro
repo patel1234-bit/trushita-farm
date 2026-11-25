@@ -1,0 +1,119 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProcessExplorer from "../components/ProcessExplorer.jsx";
+import { COMPARISON_DATA } from "../data/catalog.js";
+---
+
+<BaseLayout title="Wood-Ghani Process & Heritage | Trushita Natural Food" currentPage="process">
+  <section class="py-12 bg-zinc-50 border-b border-zinc-200 bg-grid-pattern">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+        The Craft of Pure Oil
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-black mt-3 mb-2">
+        5-Stage Traditional Wood-Ghani Extraction
+      </h1>
+      <p class="text-xs sm:text-sm text-zinc-600 max-w-2xl mx-auto">
+        Zero chemical solvents. Zero artificial bleaching. Inspect how we preserve living nutrition from Gujarat oilseeds to your kitchen.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white border-b border-zinc-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ProcessExplorer client:visible />
+    </div>
+  </section>
+
+  <!-- Static Comparison Table (Zero JS) -->
+  <section class="py-16 bg-zinc-50 border-b border-zinc-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+          The Hidden Difference
+        </span>
+        <h2 class="text-2xl md:text-3xl tracking-tight mb-2 text-black font-extrabold mt-2">
+          Factory Refined Oil vs. Trushita Wood-Pressed
+        </h2>
+        <p class="text-xs sm:text-sm text-zinc-500">
+          Supermarket oils look crystal-clear not because they are pure, but because they are chemically bleached and stripped of natural nutrients.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-sm border border-zinc-200 overflow-hidden shadow-xs">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left">
+            <thead>
+              <tr class="bg-zinc-900 text-white text-xs sm:text-sm font-bold">
+                <th class="py-3.5 px-4 sm:px-6">Parameter</th>
+                <th class="py-3.5 px-4 sm:px-6 bg-red-950/80 text-red-200">Factory Refined Oils</th>
+                <th class="py-3.5 px-4 sm:px-6 bg-emerald-950 text-emerald-200">Trushita Wood-Pressed Oil</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-200 bg-white">
+              {COMPARISON_DATA.map((item) => (
+                <tr class="hover:bg-zinc-50 transition-colors">
+                  <td class="py-3 px-4 font-semibold text-zinc-900 text-xs">{item.parameter}</td>
+                  <td class="py-3 px-4 text-xs text-red-900 bg-red-50/40">
+                    <span class="inline-block mr-1 text-red-500 font-bold">✕</span>
+                    {item.refined}
+                  </td>
+                  <td class="py-3 px-4 text-xs text-emerald-950 bg-emerald-50/50 font-medium">
+                    <span class="inline-block mr-1 text-emerald-600 font-bold">✓</span>
+                    {item.woodGhani}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Static Visnagar Heritage Section -->
+  <section class="py-16 bg-white border-b border-zinc-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+            Visnagar, Gujarat Heritage
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-black tracking-tight">
+            Born Near Unjha — Asia's Premier Agricultural Seed Hub
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+            Trushita Natural Food operates in <strong>Visnagar, Mehsana district</strong>, minutes away from the famous Unjha APMC market. Rather than sourcing bulk tankers of anonymous oil, we directly inspect and procure whole oilseeds from Gujarat farming cooperatives.
+          </p>
+          <div class="pt-2">
+            <a href="/products" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-black hover:bg-zinc-800 text-white text-xs font-bold transition-all">
+              <span>Shop Fresh Harvest Oils</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 bg-zinc-950 text-zinc-300 p-7 rounded-sm border border-zinc-800">
+          <span class="text-[10px] uppercase tracking-widest text-emerald-400 font-bold block mb-2">Our Purity Pledge</span>
+          <h3 class="text-xl font-bold text-white mb-5">
+            &quot;Pure Single-Seed Oils With Full NABL Batch Traceability.&quot;
+          </h3>
+          <ul class="space-y-3 text-xs">
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span><strong>Zero Palm Oil Blending:</strong> 100% single-origin seeds with no cheap fillers.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span><strong>48-Hour Gravity Settling:</strong> Natural clarification without centrifugal chemical agents.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold">✓</span>
+              <span><strong>Lab Report Verification:</strong> Check any bottle batch directly on our Lab Reports page.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,67 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import LabReportVerifier from "../components/LabReportVerifier.jsx";
+---
+
+<BaseLayout title="NABL Lab Reports & FAQs | Trushita Natural Food" currentPage="lab-reports">
+  <section class="py-12 bg-zinc-50 border-b border-zinc-200 bg-grid-pattern">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+        Radical Transparency
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-black mt-3 mb-2">
+        Verify Your Batch NABL Lab Report
+      </h1>
+      <p class="text-xs sm:text-sm text-zinc-600 max-w-2xl mx-auto">
+        Every batch of Trushita wood-pressed oil is independently tested by NABL-accredited food laboratories for purity, zero hexane solvents, and aflatoxin safety.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white border-b border-zinc-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <LabReportVerifier client:load />
+    </div>
+  </section>
+
+  <!-- Static Purity FAQs (0 KB JS) -->
+  <section class="py-14 bg-zinc-50 border-b border-zinc-200">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <h2 class="text-2xl font-extrabold text-black tracking-tight">Lab Testing &amp; Purity FAQs</h2>
+      </div>
+
+      <div class="space-y-3 text-sm">
+        <details class="group bg-white p-5 rounded-sm border border-zinc-200 cursor-pointer" open>
+          <summary class="font-bold text-zinc-900 flex justify-between items-center list-none text-xs sm:text-sm">
+            <span>Why is there slight natural sediment at the bottom of pure oil?</span>
+            <span class="transition group-open:rotate-180 text-zinc-400">▼</span>
+          </summary>
+          <p class="text-xs text-zinc-600 mt-3 leading-relaxed">
+            Slight natural cloudiness or fine seed particles at the base are the signature of authentic unrefined oil. Unlike factory oils treated with chemical gums and centrifugal stripping, our 4-layer cotton cloth filtration preserves healthy micronutrients.
+          </p>
+        </details>
+
+        <details class="group bg-white p-5 rounded-sm border border-zinc-200 cursor-pointer">
+          <summary class="font-bold text-zinc-900 flex justify-between items-center list-none text-xs sm:text-sm">
+            <span>What does &quot;Zero Hexane Residue&quot; in the NABL report mean?</span>
+            <span class="transition group-open:rotate-180 text-zinc-400">▼</span>
+          </summary>
+          <p class="text-xs text-zinc-600 mt-3 leading-relaxed">
+            Industrial oil refineries use hexane (a petroleum-derived solvent) to maximize oil yield from seed meal. Our wooden kolhus press purely mechanically without a single drop of solvent, confirmed as 0.00 ppm on every NABL certificate.
+          </p>
+        </details>
+
+        <details class="group bg-white p-5 rounded-sm border border-zinc-200 cursor-pointer">
+          <summary class="font-bold text-zinc-900 flex justify-between items-center list-none text-xs sm:text-sm">
+            <span>How long does Trushita wood-pressed oil stay fresh?</span>
+            <span class="transition group-open:rotate-180 text-zinc-400">▼</span>
+          </summary>
+          <p class="text-xs text-zinc-600 mt-3 leading-relaxed">
+            Because natural Vitamin E (tocopherols) remains intact in wood-pressed oils, they naturally resist oxidation for 9 to 12 months when stored in a cool, dark pantry away from direct sunlight.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,12 +1,17 @@
+# Dependencies & build output
+node_modules/
+dist/
+.astro/
+
 # OS generated files
 .DS_Store
 Thumbs.db
 
-# Logs
+# Logs & env
 *.log
+.env
+.env.*
 
-# Editor directories and files
+# Editor directories
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace

@@ -1,0 +1,21 @@
+{
+  "name": "trushita-farm",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "Trushita Natural Food - Astro + React Islands + Tailwind CSS D2C Storefront",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.1",
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.4.0",
+    "lucide-react": "^0.475.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

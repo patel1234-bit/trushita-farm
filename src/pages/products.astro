@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProductStore from "../components/ProductStore.jsx";
+---
+
+<BaseLayout title="Oils Store | Trushita Natural Food" currentPage="products">
+  <section class="py-12 bg-zinc-50 border-b border-zinc-200 bg-grid-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+          Fresh Wood-Pressed Catalog
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-black text-black tracking-tight mt-3 mb-2">
+          Our Pure Wood-Pressed Oils Store
+        </h1>
+        <p class="text-xs sm:text-sm text-zinc-600 max-w-xl">
+          Every bottle is crushed in small batches at our Visnagar facility using traditional Babool wooden ghanis. Select your preferred packaging size below.
+        </p>
+      </div>
+
+      <a href="/calculator" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline shrink-0">
+        Not sure how much you need? Try the Oil Calculator →
+      </a>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ProductStore client:load />
+    </div>
+  </section>
+</BaseLayout>
