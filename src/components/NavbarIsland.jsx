@@ -9,13 +9,14 @@ import {
   setOrdersModalOpen,
   checkoutWhatsApp
 } from "../lib/store.js";
+import { withBase } from "../lib/paths.js";
 
 const NAV_ITEMS = [
-  { id: "home", label: "Home", href: "/" },
-  { id: "products", label: "Oils Store", href: "/products" },
-  { id: "process", label: "Process", href: "/process" },
-  { id: "lab-reports", label: "Lab Reports", href: "/lab-reports", badge: "NABL" },
-  { id: "calculator", label: "Oil Calculator", href: "/calculator" }
+  { id: "home", label: "Home", href: withBase("/") },
+  { id: "products", label: "Oils Store", href: withBase("/products") },
+  { id: "process", label: "Process", href: withBase("/process") },
+  { id: "lab-reports", label: "Lab Reports", href: withBase("/lab-reports"), badge: "NABL" },
+  { id: "calculator", label: "Oil Calculator", href: withBase("/calculator") }
 ];
 
 export default function NavbarIsland({ currentPage = "home" }) {
@@ -27,7 +28,10 @@ export default function NavbarIsland({ currentPage = "home" }) {
 
   useEffect(() => {
     const syncPath = () => {
-      const p = window.location.pathname.replace(/\/+$/, "") || "/";
+      const base = (import.meta.env.BASE_URL || "/").replace(/\/+$/, "");
+      let p = window.location.pathname;
+      if (base && p.startsWith(base)) p = p.slice(base.length);
+      p = p.replace(/\/+$/, "") || "/";
       if (p === "/") setActivePage("home");
       else if (p.startsWith("/products")) setActivePage("products");
       else if (p.startsWith("/process")) setActivePage("process");
@@ -71,7 +75,7 @@ export default function NavbarIsland({ currentPage = "home" }) {
         setTimeout(() => el.focus(), 250);
       }
     } else {
-      window.location.href = "/products?focus=search";
+      window.location.href = withBase("/products?focus=search");
     }
   };
 
@@ -87,9 +91,9 @@ export default function NavbarIsland({ currentPage = "home" }) {
         }`}
       >
         {/* Official Brand Lockup */}
-        <a href="/" className="flex items-center gap-3 group shrink-0">
+        <a href={withBase("/")} className="flex items-center gap-3 group shrink-0">
           <div className="w-11 h-11 flex items-center justify-center p-0.5 bg-[#f3f8f5] rounded-sm border border-emerald-200/70 shadow-2xs group-hover:border-emerald-500 transition-all">
-            <img src="/trushita.svg" alt="Trushita Natural Food Logo" className="w-full h-full object-contain" />
+            <img src={withBase("/trushita.svg")} alt="Trushita Natural Food Logo" className="w-full h-full object-contain" />
           </div>
           <div className="leading-tight">
             <div className="flex items-center gap-1.5">

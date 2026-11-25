@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import GhaniSimulator from "../components/GhaniSimulator.jsx";
 import ProductStore from "../components/ProductStore.jsx";
+import { withBase } from "../lib/paths.js";
 ---
 
 <BaseLayout title="Trushita Natural Food | Pure Wood-Pressed Oils & Farm Purity" currentPage="home">
@@ -29,14 +30,14 @@ import ProductStore from "../components/ProductStore.jsx";
           </p>
 
           <div class="flex flex-wrap items-center gap-3 mb-8">
-            <a href="/products" class="px-5 py-3 rounded-sm bg-black hover:bg-zinc-800 text-white font-bold text-xs shadow-sm transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+            <a href={withBase("/products")} class="px-5 py-3 rounded-sm bg-black hover:bg-zinc-800 text-white font-bold text-xs shadow-sm transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
               <span>Explore Fresh Oils Store</span>
               <span>→</span>
             </a>
-            <a href="/lab-reports" class="px-5 py-3 rounded-sm bg-white hover:bg-zinc-100 text-zinc-800 font-bold text-xs border border-zinc-300 transition-all flex items-center gap-2 shadow-xs">
+            <a href={withBase("/lab-reports")} class="px-5 py-3 rounded-sm bg-white hover:bg-zinc-100 text-zinc-800 font-bold text-xs border border-zinc-300 transition-all flex items-center gap-2 shadow-xs">
               <span>Verify NABL Batch Lab Report</span>
             </a>
-            <a href="/calculator" class="px-5 py-3 rounded-sm bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs border border-emerald-200 transition-all">
+            <a href={withBase("/calculator")} class="px-5 py-3 rounded-sm bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs border border-emerald-200 transition-all">
               Monthly Oil Calculator
             </a>
           </div>
@@ -127,7 +128,7 @@ import ProductStore from "../components/ProductStore.jsx";
             Bestselling Wood-Pressed Oils
           </h2>
         </div>
-        <a href="/products" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-sm bg-black hover:bg-zinc-800 text-white text-xs font-bold transition-all self-start sm:self-auto">
+        <a href={withBase("/products")} class="inline-flex items-center gap-1.5 px-4 py-2 rounded-sm bg-black hover:bg-zinc-800 text-white text-xs font-bold transition-all self-start sm:self-auto">
           <span>View All 7 Products</span>
           <span>→</span>
         </a>
@@ -150,7 +151,7 @@ import ProductStore from "../components/ProductStore.jsx";
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="/process" class="group p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
+        <a href={withBase("/process")} class="group p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
           <div>
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-200">Craft &amp; Comparison</span>
             <h3 class="text-lg font-bold text-zinc-900 mt-3 mb-2 group-hover:text-emerald-700 transition-colors">5-Stage Wood-Ghani Process</h3>
@@ -161,7 +162,7 @@ import ProductStore from "../components/ProductStore.jsx";
           <span class="text-xs font-bold text-black group-hover:text-emerald-700">Inspect Process →</span>
         </a>
 
-        <a href="/lab-reports" class="group p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
+        <a href={withBase("/lab-reports")} class="group p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
           <div>
             <span class="text-[10px] font-bold uppercase tracking-wider text-white bg-emerald-600 px-2 py-0.5 rounded-sm">NABL Certified</span>
             <h3 class="text-lg font-bold text-zinc-900 mt-3 mb-2 group-hover:text-emerald-700 transition-colors">Batch Lab Report Verifier</h3>
@@ -172,7 +173,7 @@ import ProductStore from "../components/ProductStore.jsx";
           <span class="text-xs font-bold text-black group-hover:text-emerald-700">Verify a Batch →</span>
         </a>
 
-        <a href="/calculator" class="group p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
+        <a href={withBase("/calculator")} class="group p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
           <div>
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-200">Smart Planner</span>
             <h3 class="text-lg font-bold text-zinc-900 mt-3 mb-2 group-hover:text-emerald-700 transition-colors">Monthly Kitchen Oil Calculator</h3>

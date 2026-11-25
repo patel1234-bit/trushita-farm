@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, ShoppingBag, ShieldCheck, MessageCircle, CreditCard, Sparkles } from "lucide-react";
 import { PRODUCTS } from "../data/catalog.js";
+import { withBase } from "../lib/paths.js";
 import {
   useTrushitaStore,
   setCartOpen,
@@ -108,7 +109,7 @@ export default function GlobalOverlays() {
               <div className="p-6 space-y-4">
                 <div className="text-center mb-2">
                   <div className="w-10 h-10 mx-auto mb-2 p-1 bg-[#f3f8f5] border border-emerald-200 rounded-sm">
-                    <img src="/trushita.svg" alt="Trushita" className="w-full h-full object-contain" />
+                    <img src={withBase("/trushita.svg")} alt="Trushita" className="w-full h-full object-contain" />
                   </div>
                   <h3 className="text-sm font-bold text-zinc-900">Sign in to Trushita Farm</h3>
                   <p className="text-[11px] text-zinc-500">Track your fresh oil orders &amp; batch reports</p>
@@ -231,7 +232,7 @@ export default function GlobalOverlays() {
             <div className="p-4 bg-zinc-950 text-white flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 p-1 bg-white rounded-sm">
-                  <img src="/trushita.svg" alt="Trushita" className="w-full h-full object-contain" />
+                  <img src={withBase("/trushita.svg")} alt="Trushita" className="w-full h-full object-contain" />
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
@@ -574,7 +575,7 @@ export default function GlobalOverlays() {
                 Add some pure Gujarat wood-pressed oils to get started!
               </p>
               <a
-                href="/products"
+                href={withBase("/products")}
                 onClick={() => setCartOpen(false)}
                 className="inline-block px-3.5 py-1.5 rounded-sm bg-black text-white text-xs font-bold"
               >

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProductStore from "../components/ProductStore.jsx";
+import { withBase } from "../lib/paths.js";
 ---
 
 <BaseLayout title="Oils Store | Trushita Natural Food" currentPage="products">
@@ -18,7 +19,7 @@ import ProductStore from "../components/ProductStore.jsx";
         </p>
       </div>
 
-      <a href="/calculator" class="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline shrink-0">
+      <a href={withBase("/calculator")} class="text-xs font-bold text-emerald-700 hover:text-emerald-800 underline shrink-0">
         Not sure how much you need? Try the Oil Calculator →
       </a>
     </div>

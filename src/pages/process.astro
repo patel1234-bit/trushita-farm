@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ProcessExplorer from "../components/ProcessExplorer.jsx";
 import { COMPARISON_DATA } from "../data/catalog.js";
+import { withBase } from "../lib/paths.js";
 ---
 
 <BaseLayout title="Wood-Ghani Process & Heritage | Trushita Natural Food" currentPage="process">
@@ -86,7 +87,7 @@ import { COMPARISON_DATA } from "../data/catalog.js";
             Trushita Natural Food operates in <strong>Visnagar, Mehsana district</strong>, minutes away from the famous Unjha APMC market. Rather than sourcing bulk tankers of anonymous oil, we directly inspect and procure whole oilseeds from Gujarat farming cooperatives.
           </p>
           <div class="pt-2">
-            <a href="/products" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-black hover:bg-zinc-800 text-white text-xs font-bold transition-all">
+            <a href={withBase("/products")} class="inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-black hover:bg-zinc-800 text-white text-xs font-bold transition-all">
               <span>Shop Fresh Harvest Oils</span>
               <span>→</span>
             </a>
