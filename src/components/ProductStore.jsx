@@ -58,10 +58,10 @@ export default function ProductStore({ featuredOnly = false }) {
   }
 
   const tabs = [
-    { id: "all", label: "All Oils (7)" },
+    { id: "all", label: "All Oils (8)" },
     { id: "cooking", label: "Daily Cooking (3)" },
-    { id: "wellness", label: "Ayurvedic & Wellness (3)" },
-    { id: "bundles", label: "Discovery Boxes (1)" }
+    { id: "wellness", label: "Ayurvedic & Wellness (4)" },
+    { id: "bundles", label: "Family Combo (1)" }
   ];
 
   return (

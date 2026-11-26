@@ -59,8 +59,8 @@ function hydrateFromStorage() {
     ...storeState,
     cart: readStorage("trushita_cart", []),
     currentUser: readStorage("trushita_user", null),
-    orders: readStorage("trushita_orders", INITIAL_ORDERS),
-    batches: readStorage("trushita_batches", INITIAL_BATCH_DATABASE)
+    orders: readStorage("trushita_orders_v2", INITIAL_ORDERS),
+    batches: readStorage("trushita_batches_v2", INITIAL_BATCH_DATABASE)
   };
 }
 
@@ -123,6 +123,7 @@ export function addToCart(productId, sizeIdx) {
           size: sizeObj.size,
           price: sizeObj.price,
           icon: product.icon,
+          image: sizeObj.image || product.image,
           quantity: 1
         }
       ];
@@ -237,7 +238,7 @@ export function setQuickViewProduct(productId) {
 export function updateOrderStatus(orderId, status) {
   const nextOrders = storeState.orders.map((o) => (o.id === orderId ? { ...o, status } : o));
   storeState = { ...storeState, orders: nextOrders };
-  writeStorage("trushita_orders", nextOrders);
+  writeStorage("trushita_orders_v2", nextOrders);
   notify();
   showToast(`Order ${orderId} updated to ${status}`);
 }
@@ -251,22 +252,22 @@ export function addTestedBatch(batchCode) {
       batchNumber: code,
       oilName: "Wood-Pressed Fresh Batch Oil",
       crushDate: "25-Nov-2026",
-      testingDate: "25-Nov-2026",
-      expiryDate: "24-Nov-2027",
-      nablLab: "Vardhman Food Testing Laboratories (NABL Accredited)",
-      seedSource: "Visnagar Gujarat Cooperative",
-      status: "PASS - 100% UNADULTERATED",
+      dispatchWindow: "Pressed & Sealed in Visnagar",
+      expiryDate: "12 Months from Packing",
+      fssaiRef: "FSSAI Lic. 10723999000614 (ISO / NABL-Aligned QC Protocol)",
+      seedSource: "Visnagar & Saurashtra Farmer Cooperative",
+      status: "VERIFIED PURE • SINGLE-ORIGIN BATCH",
       parameters: [
-        { param: "Free Fatty Acids", standard: "Max 1.5%", result: "0.36%", status: "PASSED" },
-        { param: "Aflatoxin", standard: "Max 15 ppb", result: "NOT DETECTED", status: "PASSED" },
-        { param: "Hexane Solvent", standard: "Nil", result: "0.00 ppm", status: "PASSED" }
+        { param: "Raw Material Identity", standard: "100% Single-Origin Seeds", result: "Sortex Cleaned & Inspected", status: "VERIFIED" },
+        { param: "Extraction Method", standard: "Zero Hexane Mechanical Press", result: "Traditional Wood Ghani (12 RPM)", status: "VERIFIED" },
+        { param: "Clarification & Filtration", standard: "No Solvent / Acid Refining", result: "48-Hr Gravity Settling + Cotton Filter", status: "PASS" }
       ]
     }
   };
   storeState = { ...storeState, batches: nextBatches };
-  writeStorage("trushita_batches", nextBatches);
+  writeStorage("trushita_batches_v2", nextBatches);
   notify();
-  showToast(`Added Batch ${code} to verified NABL Registry!`);
+  showToast(`Added Batch ${code} to Trushita Traceability Registry!`);
 }
 
 export function addPromoCode(code, pct) {
@@ -303,7 +304,7 @@ function recordOrder(method) {
 
   const nextOrders = [order, ...storeState.orders];
   storeState = { ...storeState, orders: nextOrders };
-  writeStorage("trushita_orders", nextOrders);
+  writeStorage("trushita_orders_v2", nextOrders);
   notify();
   return order;
 }

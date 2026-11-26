@@ -15,7 +15,7 @@ const NAV_ITEMS = [
   { id: "home", label: "Home", href: withBase("/") },
   { id: "products", label: "Oils Store", href: withBase("/products") },
   { id: "process", label: "Process", href: withBase("/process") },
-  { id: "lab-reports", label: "Lab Reports", href: withBase("/lab-reports"), badge: "NABL" },
+  { id: "lab-reports", label: "Verify Purity", href: withBase("/lab-reports"), badge: "BATCH" },
   { id: "calculator", label: "Oil Calculator", href: withBase("/calculator") }
 ];
 

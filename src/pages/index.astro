@@ -1,267 +1,465 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import GhaniSimulator from "../components/GhaniSimulator.jsx";
 import ProductStore from "../components/ProductStore.jsx";
 import OilPairingStudio from "../components/OilPairingStudio.jsx";
+import LabReportVerifier from "../components/LabReportVerifier.jsx";
+import { BRAND_INFO, FARM_STORY_STEPS, CUSTOMER_REVIEWS } from "../data/catalog.js";
 import { withBase } from "../lib/paths.js";
 ---
 
 <BaseLayout title="Trushita Natural Food | Pure Wood-Pressed Oils & Farm Purity" currentPage="home">
-  <!-- Hero Section (Static Copy + Interactive Cutaway Wood-Ghani Oil Pour) -->
-  <section class="relative pt-12 pb-16 overflow-hidden bg-zinc-50 border-b border-zinc-200 bg-grid-pattern">
+
+  <!-- 1. FULL-WIDTH VISUAL HERO SECTION -->
+  <section class="relative pt-10 pb-14 lg:pt-14 lg:pb-18 overflow-hidden bg-zinc-50 border-b border-zinc-200 bg-grid-pattern">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        
-        <div class="lg:col-span-7">
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold mb-5 shadow-2xs">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+
+        <!-- Left Headline & Brand Statement -->
+        <div class="lg:col-span-6 space-y-5">
+          <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold shadow-2xs">
             <span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-            <span>100% Traditional Wood Ghani (Lakdi Kolhu)</span>
+            <span>Traditional Wood Ghani (Lakdi Kolhu)</span>
             <span class="text-zinc-400">•</span>
-            <span>Zero Hexane Solvents</span>
+            <span>Zero Chemical Solvents</span>
           </div>
 
-          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black mb-5 leading-[1.12]">
-            Pure Cold-Pressed Oils <br />
-            <span class="text-emerald-600">Sourced Directly From Gujarat Farms.</span>
+          <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-black leading-[1.1]">
+            Pure Wood-Pressed Oils <br />
+            <span class="text-emerald-600">From Gujarat Farms to Your Kitchen.</span>
           </h1>
 
-          <p class="text-sm sm:text-base text-zinc-600 mb-6 leading-relaxed max-w-2xl">
-            Commercial edible oils are chemically refined and washed with petroleum solvents.
-            <strong>Trushita Oil</strong> is slowly crushed in traditional wooden ghanis at 12 RPM — preserving natural vitamin E, authentic aroma, and zero chemicals.
+          <p class="text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
+            Unlike supermarket refined oils stripped with petroleum solvents and acid bleaching, <strong>Trushita Natural Food</strong> slowly presses A1-grade Saurashtra groundnuts, mustard seeds, and Unjha sesame in wooden ghanis—preserving authentic aroma, natural nutrition, and complete farm-to-bottle transparency.
           </p>
 
-          <div class="flex flex-wrap items-center gap-3 mb-8">
-            <a href={withBase("/products")} class="px-5 py-3 rounded-sm bg-black hover:bg-zinc-800 text-white font-bold text-xs shadow-sm transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+          <div class="flex flex-wrap items-center gap-3 pt-1">
+            <a
+              href={withBase("/products")}
+              class="px-6 py-3.5 rounded-sm bg-black hover:bg-zinc-800 text-white font-bold text-xs shadow-md transition-all transform hover:-translate-y-0.5 flex items-center gap-2"
+            >
               <span>Explore Fresh Oils Store</span>
               <span>→</span>
             </a>
-            <a href={withBase("/lab-reports")} class="px-5 py-3 rounded-sm bg-white hover:bg-zinc-100 text-zinc-800 font-bold text-xs border border-zinc-300 transition-all flex items-center gap-2 shadow-xs">
-              <span>Verify NABL Batch Lab Report</span>
+            <a
+              href="#verify-purity"
+              class="px-5 py-3.5 rounded-sm bg-white hover:bg-zinc-100 text-zinc-900 font-bold text-xs border border-zinc-300 transition-all flex items-center gap-2 shadow-xs"
+            >
+              <span>Verify Batch Purity</span>
             </a>
-            <a href={withBase("/calculator")} class="px-5 py-3 rounded-sm bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs border border-emerald-200 transition-all">
+            <a
+              href={withBase("/calculator")}
+              class="px-4 py-3.5 rounded-sm bg-emerald-50 hover:bg-emerald-100 text-emerald-800 font-bold text-xs border border-emerald-200 transition-all"
+            >
               Monthly Oil Calculator
             </a>
           </div>
 
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-6 border-t border-zinc-200">
-            <div class="bg-white p-3.5 rounded-sm border border-zinc-200 shadow-2xs">
-              <span class="block text-2xl font-black text-emerald-700">12 RPM</span>
+          <!-- 4 Factual Craft Indicators -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-5 border-t border-zinc-200">
+            <div class="bg-white p-3 rounded-sm border border-zinc-200 shadow-2xs">
+              <span class="block text-xl font-black text-emerald-700">12 RPM</span>
               <span class="text-[11px] text-zinc-500 font-medium">Slow Wood Press</span>
             </div>
-            <div class="bg-white p-3.5 rounded-sm border border-zinc-200 shadow-2xs">
-              <span class="block text-2xl font-black text-emerald-700">0.0%</span>
-              <span class="text-[11px] text-zinc-500 font-medium">Chemical Solvents</span>
+            <div class="bg-white p-3 rounded-sm border border-zinc-200 shadow-2xs">
+              <span class="block text-xl font-black text-emerald-700">0.0%</span>
+              <span class="text-[11px] text-zinc-500 font-medium">Hexane Solvents</span>
             </div>
-            <div class="bg-white p-3.5 rounded-sm border border-zinc-200 shadow-2xs">
-              <span class="block text-2xl font-black text-zinc-900">100%</span>
-              <span class="text-[11px] text-zinc-500 font-medium">Gujarat Oilseeds</span>
+            <div class="bg-white p-3 rounded-sm border border-zinc-200 shadow-2xs">
+              <span class="block text-xl font-black text-zinc-950">48 Hrs</span>
+              <span class="text-[11px] text-zinc-500 font-medium">Gravity Settling</span>
             </div>
-            <div class="bg-white p-3.5 rounded-sm border border-zinc-200 shadow-2xs">
-              <span class="block text-2xl font-black text-emerald-700">NABL</span>
-              <span class="text-[11px] text-zinc-500 font-medium">Lab Certified Clean</span>
+            <div class="bg-white p-3 rounded-sm border border-zinc-200 shadow-2xs">
+              <span class="block text-lg font-black text-emerald-700">FSSAI</span>
+              <span class="text-[10px] font-mono text-zinc-500 font-semibold">{BRAND_INFO.fssai}</span>
             </div>
           </div>
         </div>
 
-        <div class="lg:col-span-5">
-          <GhaniSimulator client:visible />
+        <!-- Right Authentic Range & Agricultural Photography Collage -->
+        <div class="lg:col-span-6 space-y-3">
+          <div class="relative rounded-sm overflow-hidden border border-zinc-300 bg-zinc-950 shadow-xl group">
+            <img
+              src={withBase("/images/hero-trushita-range.jpg")}
+              alt="Trushita Natural Food Cold-Pressed Oil Range with Groundnut, Yellow Mustard, White Sesame, Black Mustard, Coconut & Flaxseed"
+              loading="eager"
+              decoding="sync"
+              class="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
+            />
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/35 to-transparent p-4 sm:p-5 flex items-end justify-between gap-4">
+              <div>
+                <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-sm bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wider mb-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
+                  Visnagar Small-Batch Press
+                </span>
+                <p class="text-white text-xs sm:text-sm font-bold">
+                  100% Pure &amp; Unrefined Cold-Pressed Cooking Oils
+                </p>
+              </div>
+              <a
+                href={withBase("/products")}
+                class="hidden sm:inline-flex items-center gap-1 px-3 py-1.5 rounded-sm bg-white text-zinc-950 text-[11px] font-bold hover:bg-emerald-50 transition-colors shrink-0"
+              >
+                Shop All Oils →
+              </a>
+            </div>
+          </div>
+
+          <!-- Supporting Real Farm + Kolhu + Seed Thumbnail Strip -->
+          <div class="grid grid-cols-3 gap-3">
+            <div class="rounded-sm overflow-hidden border border-zinc-200 bg-white shadow-xs group">
+              <div class="aspect-[16/10] overflow-hidden">
+                <img
+                  src={withBase("/images/farm-groundnut-field.jpg")}
+                  alt="Gujarat groundnut farm harvest"
+                  loading="eager"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="px-2.5 py-1.5 text-[10px] font-bold text-zinc-800 bg-white border-t border-zinc-100 truncate">
+                01. Gujarat Groundnut Farms
+              </div>
+            </div>
+
+            <div class="rounded-sm overflow-hidden border border-zinc-200 bg-white shadow-xs group">
+              <div class="aspect-[16/10] overflow-hidden">
+                <img
+                  src={withBase("/images/modern-kolhu.jpg")}
+                  alt="Traditional wooden ghani extraction unit"
+                  loading="eager"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="px-2.5 py-1.5 text-[10px] font-bold text-zinc-800 bg-white border-t border-zinc-100 truncate">
+                02. Traditional Wood Ghani
+              </div>
+            </div>
+
+            <div class="rounded-sm overflow-hidden border border-zinc-200 bg-white shadow-xs group">
+              <div class="aspect-[16/10] overflow-hidden">
+                <img
+                  src={withBase("/images/farm-mustard.jpg")}
+                  alt="Fresh mustard crop cultivation"
+                  loading="eager"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div class="px-2.5 py-1.5 text-[10px] font-bold text-zinc-800 bg-white border-t border-zinc-100 truncate">
+                03. Mustard Harvest Fields
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- Flowing Oil Ribbon Strip (Static Editorial Banner) -->
+  <!-- Flowing Craft Ribbon Strip (Static) -->
   <div class="bg-zinc-950 text-white py-3.5 border-b border-zinc-800 overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center sm:justify-between gap-4 text-[11px] font-semibold tracking-wider uppercase">
       <span class="inline-flex items-center gap-2 text-emerald-400">
         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-        Single-Origin Saurashtra Groundnuts
+        Single-Origin G20 Groundnuts
       </span>
-      <span class="text-zinc-600 hidden sm:inline">/</span>
-      <span class="inline-flex items-center gap-2 text-zinc-200">
-        Babool Timber Kolhu Extraction
-      </span>
-      <span class="text-zinc-600 hidden sm:inline">/</span>
-      <span class="inline-flex items-center gap-2 text-zinc-200">
-        48-Hour Natural Gravity Settling
-      </span>
-      <span class="text-zinc-600 hidden sm:inline">/</span>
-      <span class="inline-flex items-center gap-2 text-emerald-400">
-        4-Layer Unbleached Cotton Filter
-      </span>
+      <span class="text-zinc-700 hidden sm:inline">/</span>
+      <span class="text-zinc-200">Babool &amp; Neem Wood Kolhu</span>
+      <span class="text-zinc-700 hidden sm:inline">/</span>
+      <span class="text-zinc-200">48-Hour Natural Gravity Settling</span>
+      <span class="text-zinc-700 hidden sm:inline">/</span>
+      <span class="text-emerald-400">4-Layer Unbleached Cotton Filter</span>
     </div>
   </div>
 
-  <!-- Interactive Oil Pairing Studio -->
+  <!-- 2. EMOTIONAL BRAND STORY: FROM GUJARAT'S FARMS TO YOUR FAMILY'S KITCHEN -->
+  <section id="farm-story" class="py-16 sm:py-20 bg-white border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal-on-scroll">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+          Our Farm-to-Bottle Journey
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black tracking-tight text-black mt-3 mb-3">
+          From Gujarat&apos;s Farms to Your Family&apos;s Kitchen
+        </h2>
+        <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+          Every drop carries the honesty of Gujarat&apos;s soil—crafted by partnering directly with seed growers and pressing whole seeds slowly without chemical shortcuts.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {FARM_STORY_STEPS.map((item, idx) => (
+          <article class={`reveal-on-scroll reveal-delay-${(idx % 3) + 1} group bg-zinc-50 rounded-sm border border-zinc-200 hover:border-emerald-400 overflow-hidden shadow-2xs hover:shadow-md transition-all flex flex-col`}>
+            <div class="relative aspect-[16/10] overflow-hidden bg-zinc-200">
+              <img
+                src={withBase(item.image)}
+                alt={item.title}
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute top-3 left-3 bg-zinc-950/90 text-white font-mono text-[11px] font-bold px-2.5 py-1 rounded-sm border border-zinc-700">
+                STEP {item.step}
+              </div>
+              <div class="absolute bottom-2.5 right-2.5 bg-white/95 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-sm border border-emerald-200">
+                {item.location}
+              </div>
+            </div>
+
+            <div class="p-5 flex-1 flex flex-col justify-between bg-white">
+              <div>
+                <h3 class="text-base font-bold text-zinc-950 group-hover:text-emerald-700 transition-colors mb-2">
+                  {item.title}
+                </h3>
+                <p class="text-xs text-zinc-600 leading-relaxed">
+                  {item.caption}
+                </p>
+              </div>
+              <div class="mt-4 pt-3 border-t border-zinc-100 flex items-center justify-between text-[11px]">
+                <span class="font-semibold text-emerald-700">Verified Stage {item.step}/06</span>
+                {idx < 5 ? (
+                  <span class="text-zinc-400 font-mono">Next Stage →</span>
+                ) : (
+                  <a href={withBase("/products")} class="font-bold text-black hover:text-emerald-700">
+                    Order Fresh Batch →
+                  </a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. MAKE PURITY VISIBLE: THE PURITY BEHIND EVERY DROP -->
+  <section id="purity-behind" class="py-16 sm:py-20 bg-zinc-950 text-white border-b border-zinc-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+        <!-- Left Photographic Evidence Grid -->
+        <div class="lg:col-span-5 space-y-4 reveal-on-scroll">
+          <div class="rounded-sm overflow-hidden border border-zinc-800 bg-zinc-900 relative group">
+            <img
+              src={withBase("/images/modern-kolhu.jpg")}
+              alt="Slow Wooden Ghani Oil Pressing Unit"
+              loading="lazy"
+              decoding="async"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div class="p-4 bg-zinc-900/95 border-t border-zinc-800 flex items-center justify-between">
+              <div>
+                <span class="text-[10px] font-mono font-bold text-emerald-400 uppercase block">12 RPM Wood Kolhu</span>
+                <span class="text-xs font-bold text-white">Slow Physical Crushing in Visnagar</span>
+              </div>
+              <span class="px-2 py-1 rounded-sm bg-emerald-600 text-white text-[10px] font-bold">ZERO SOLVENT</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="rounded-sm overflow-hidden border border-zinc-800 bg-zinc-900">
+              <img
+                src={withBase("/images/flax-seeds.jpg")}
+                alt="Clean Whole A1 Grade Oilseeds"
+                loading="lazy"
+                decoding="async"
+                class="w-full aspect-square object-cover"
+              />
+              <div class="p-2.5 text-[11px] font-semibold text-zinc-200 border-t border-zinc-800">
+                Sortex Cleaned A1 Oilseeds
+              </div>
+            </div>
+            <div class="rounded-sm overflow-hidden border border-zinc-800 bg-zinc-900">
+              <img
+                src={withBase("/images/high-smoke.jpg")}
+                alt="Pure wood-pressed oil cooking in Indian kitchen"
+                loading="lazy"
+                decoding="async"
+                class="w-full aspect-square object-cover"
+              />
+              <div class="p-2.5 text-[11px] font-semibold text-zinc-200 border-t border-zinc-800">
+                Zero Foaming in Cooking
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right 6 Purity Pillars -->
+        <div class="lg:col-span-7 reveal-on-scroll">
+          <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950 px-2.5 py-1 rounded-sm border border-emerald-800/80">
+            Unrefined Craft Standards
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black tracking-tight text-white mt-3 mb-3">
+            The Purity Behind Every Drop
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-7 max-w-2xl">
+            True purity requires patience. Rather than maximizing extraction volume with chemical washes, we rely exclusively on traditional mechanics and natural clarification.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 rounded-sm bg-zinc-900 border border-zinc-800 hover:border-emerald-500/60 transition-colors">
+              <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">01 / WOODEN GHANI</span>
+              <h3 class="text-sm font-bold text-white mb-1">Traditional Timber Kolhu Extraction</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">Crushed with heavy Babool and Neem wood pestles to honor traditional Indian pressing without metallic oxidation.</p>
+            </div>
+
+            <div class="p-4 rounded-sm bg-zinc-900 border border-zinc-800 hover:border-emerald-500/60 transition-colors">
+              <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">02 / UNHURRIED PACE</span>
+              <h3 class="text-sm font-bold text-white mb-1">Slow 12 RPM Extraction Process</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">Gentle slow rotation helps retain the natural color, nutty groundnut &amp; mustard aroma, and delicate seed nutrients.</p>
+            </div>
+
+            <div class="p-4 rounded-sm bg-zinc-900 border border-zinc-800 hover:border-emerald-500/60 transition-colors">
+              <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">03 / ZERO SOLVENTS</span>
+              <h3 class="text-sm font-bold text-white mb-1">No Added Chemical Solvents</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">100% free from petroleum hexane extraction, caustic soda refining, artificial fragrances, or acid-clay bleaching.</p>
+            </div>
+
+            <div class="p-4 rounded-sm bg-zinc-900 border border-zinc-800 hover:border-emerald-500/60 transition-colors">
+              <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">04 / GRAVITY CLARITY</span>
+              <h3 class="text-sm font-bold text-white mb-1">48-Hour Natural Gravity Settling</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">Fresh oil rests calmly in stainless steel vessels for 48 hours so fine meal particles settle on their own without degummers.</p>
+            </div>
+
+            <div class="p-4 rounded-sm bg-zinc-900 border border-zinc-800 hover:border-emerald-500/60 transition-colors">
+              <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">05 / CLEAN FILTER</span>
+              <h3 class="text-sm font-bold text-white mb-1">Unbleached Cotton-Cloth Filtration</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">Passed gently through 4 layers of clean cotton cloth. Light natural sediment at the bottle base marks genuine cold pressing.</p>
+            </div>
+
+            <div class="p-4 rounded-sm bg-zinc-900 border border-zinc-800 hover:border-emerald-500/60 transition-colors">
+              <span class="text-emerald-400 font-mono text-xs font-bold block mb-1">06 / TRACEABLE PACKS</span>
+              <h3 class="text-sm font-bold text-white mb-1">Batch-Level Quality Verification</h3>
+              <p class="text-xs text-zinc-400 leading-relaxed">Every small batch packed under FSSAI License {BRAND_INFO.fssai} is code-stamped so families can verify seed lot &amp; process history.</p>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href={withBase("/process")} class="px-5 py-2.5 rounded-sm bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition-colors">
+              Explore 5-Stage Process →
+            </a>
+            <a href="#verify-purity" class="px-5 py-2.5 rounded-sm bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 text-xs font-bold transition-colors">
+              Inspect Active Batch Codes
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FEATURED PREMIUM WOOD-PRESSED OILS -->
   <section class="py-16 bg-white border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 reveal-on-scroll">
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+            Fresh Small-Batch Collection
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-black text-black tracking-tight mt-2">
+            Our Signature Wood-Pressed Oils
+          </h2>
+          <p class="text-xs sm:text-sm text-zinc-600 mt-1">
+            Select your pack size (500 ml, 1 Litre, or 5 Litres Can) to see transparent per-litre pricing.
+          </p>
+        </div>
+        <a href={withBase("/products")} class="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-sm bg-black hover:bg-zinc-800 text-white text-xs font-bold transition-all self-start sm:self-auto shadow-xs">
+          <span>View All 8 Oils &amp; Bundles</span>
+          <span>→</span>
+        </a>
+      </div>
+
+      <ProductStore client:load featuredOnly={true} />
+    </div>
+  </section>
+
+  <!-- Interactive Kitchen Oil Pairing Studio -->
+  <section class="py-16 bg-zinc-50 border-b border-zinc-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <OilPairingStudio client:visible />
     </div>
   </section>
 
-  <!-- Why Choose Trushita (Editorial Cards with Clean SVG Line Art) -->
-  <section class="py-16 bg-zinc-50 border-b border-zinc-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <h2 class="text-3xl md:text-4xl tracking-tight mb-2 text-black font-extrabold">
-          Why Choose Trushita?
+  <!-- 5. TRUST & TRANSPARENCY SECTION: DON'T JUST TRUST US. VERIFY OUR PURITY. -->
+  <section id="verify-purity" class="py-16 sm:py-20 bg-white border-b border-zinc-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-10 reveal-on-scroll">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+          Radical Manufacturing Transparency
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-black tracking-tight text-black mt-3 mb-2">
+          Don&apos;t Just Trust Us. Verify Our Purity.
         </h2>
-        <p class="text-sm text-zinc-500">
-          Crafted to meet the evolving needs of healthy kitchens with unmatched purity and trust.
+        <p class="text-xs sm:text-sm text-zinc-600 leading-relaxed">
+          Inspect seed provenance, Visnagar pressing method, filtration standards, and FSSAI Lic. {BRAND_INFO.fssai} batch records directly below before buying a single drop.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-400 transition-all text-left group">
-          <div class="flex items-center justify-between mb-5">
-            <div class="w-11 h-11 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l8-4v18m6 0V11l-6-3"/>
-              </svg>
-            </div>
-            <span class="font-mono text-xs font-bold text-zinc-400">01 / FARM DIRECT</span>
-          </div>
-          <h3 class="text-base font-bold text-zinc-900 group-hover:text-emerald-700 transition-colors mb-2">
-            Directly Sourced From Local Farms
-          </h3>
-          <p class="text-xs text-zinc-600 leading-relaxed">
-            Procured directly from native Saurashtra and Gujarat farmer cooperatives near Unjha. No middlemen, ensuring pure single-seed identity.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-400 transition-all text-left group">
-          <div class="flex items-center justify-between mb-5">
-            <div class="w-11 h-11 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-              </svg>
-            </div>
-            <span class="font-mono text-xs font-bold text-zinc-400">02 / NABL TESTED</span>
-          </div>
-          <h3 class="text-base font-bold text-zinc-900 group-hover:text-emerald-700 transition-colors mb-2">
-            Committed Consistency
-          </h3>
-          <p class="text-xs text-zinc-600 leading-relaxed">
-            Unwavering commitment to aroma, flavor, and safety. Every single press is unbleached and verified by accredited NABL laboratories.
-          </p>
-        </div>
-
-        <div class="p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-400 transition-all text-left group">
-          <div class="flex items-center justify-between mb-5">
-            <div class="w-11 h-11 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
-              </svg>
-            </div>
-            <span class="font-mono text-xs font-bold text-zinc-400">03 / ECO CRAFT</span>
-          </div>
-          <h3 class="text-base font-bold text-zinc-900 group-hover:text-emerald-700 transition-colors mb-2">
-            Climate Friendly &amp; Natural
-          </h3>
-          <p class="text-xs text-zinc-600 leading-relaxed">
-            Traditional wood-pressed extraction uses minimal power and zero chemical waste, packaged in recyclable tins and dark UV glass.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Oils Preview Island -->
-  <section class="py-16 bg-white border-b border-zinc-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-        <div>
-          <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-200">
-            Fresh Harvest Selection
-          </span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-black tracking-tight mt-2">
-            Bestselling Wood-Pressed Oils
-          </h2>
-        </div>
-        <a href={withBase("/products")} class="inline-flex items-center gap-1.5 px-4 py-2 rounded-sm bg-black hover:bg-zinc-800 text-white text-xs font-bold transition-all self-start sm:self-auto">
-          <span>View All 7 Products</span>
-          <span>→</span>
-        </a>
+      <!-- Embedded Interactive Batch Verification Tool -->
+      <div class="mb-14 reveal-on-scroll">
+        <LabReportVerifier client:visible />
       </div>
 
-      <ProductStore client:visible featuredOnly={true} />
-    </div>
-  </section>
-
-  <!-- Dedicated Pages Explorer -->
-  <section class="py-16 bg-zinc-50 border-b border-zinc-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto mb-10">
-        <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-black mb-2">
-          Explore Trushita Inside &amp; Out
-        </h2>
-        <p class="text-xs text-zinc-500">
-          Dedicated pages to verify every batch, understand our wooden ghani craft, and plan your family's monthly oils.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href={withBase("/process")} class="group p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
+      <!-- Verified Google Reviews from Authentic Trushita Customers -->
+      <div class="pt-10 border-t border-zinc-200 reveal-on-scroll">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6">
           <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-200">Craft &amp; Comparison</span>
-            <h3 class="text-lg font-bold text-zinc-900 mt-3 mb-2 group-hover:text-emerald-700 transition-colors">5-Stage Wood-Ghani Process</h3>
-            <p class="text-xs text-zinc-600 leading-relaxed mb-4">
-              Walk through our traditional Babool timber crushing, 48-hour gravity settling, and refined vs. cold-pressed comparison.
-            </p>
+            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">Verified Customer Feedback</span>
+            <h3 class="text-xl sm:text-2xl font-extrabold text-zinc-950">What Indian Families Say on Google</h3>
           </div>
-          <span class="text-xs font-bold text-black group-hover:text-emerald-700">Inspect Process →</span>
-        </a>
+          <span class="text-xs text-zinc-500 font-medium">Authentic reviews published on Google Maps</span>
+        </div>
 
-        <a href={withBase("/lab-reports")} class="group p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
-          <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-white bg-emerald-600 px-2 py-0.5 rounded-sm">NABL Certified</span>
-            <h3 class="text-lg font-bold text-zinc-900 mt-3 mb-2 group-hover:text-emerald-700 transition-colors">Batch Lab Report Verifier</h3>
-            <p class="text-xs text-zinc-600 leading-relaxed mb-4">
-              Enter your bottle's batch code to inspect independent NABL lab test results for zero hexane, aflatoxin, and free fatty acids.
-            </p>
-          </div>
-          <span class="text-xs font-bold text-black group-hover:text-emerald-700">Verify a Batch →</span>
-        </a>
-
-        <a href={withBase("/calculator")} class="group p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
-          <div>
-            <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-200">Smart Planner</span>
-            <h3 class="text-lg font-bold text-zinc-900 mt-3 mb-2 group-hover:text-emerald-700 transition-colors">Monthly Kitchen Oil Calculator</h3>
-            <p class="text-xs text-zinc-600 leading-relaxed mb-4">
-              Calculate your family's ideal monthly blend of Groundnut, Mustard, and Sesame oils based on household size and cooking style.
-            </p>
-          </div>
-          <span class="text-xs font-bold text-black group-hover:text-emerald-700">Open Calculator →</span>
-        </a>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {CUSTOMER_REVIEWS.map((rev) => (
+            <a
+              href={rev.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="p-5 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-400 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <span class="text-emerald-600 text-xs font-bold">★★★★★</span>
+                  <span class="text-[10px] font-semibold text-zinc-400 group-hover:text-emerald-700">Google Review ↗</span>
+                </div>
+                <p class="text-xs text-zinc-700 leading-relaxed mb-4">
+                  &ldquo;{rev.text}&rdquo;
+                </p>
+              </div>
+              <div class="pt-2.5 border-t border-zinc-200/70">
+                <span class="text-xs font-bold text-zinc-950 block">{rev.name}</span>
+                <span class="text-[10px] text-zinc-500">{rev.location}</span>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Marketplaces Section -->
-  <section id="marketplaces" class="py-14 bg-white border-b border-zinc-200">
+  <section id="marketplaces" class="py-14 bg-zinc-50 border-b border-zinc-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-2xl md:text-3xl tracking-tight mb-2 text-black font-extrabold">
-        You Can Find Us At
+        Also Available Across Trusted Stores
       </h2>
       <p class="text-xs text-zinc-500 mb-8">
-        Available across India's leading trusted retail and wholesale platforms:
+        Order direct from Visnagar or find Trushita Natural Food across India&apos;s leading retail &amp; B2B platforms:
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <a href="https://www.amazon.in/s?k=trushita+cold+pressed+oil" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
-          <div class="w-10 h-10 rounded-sm bg-white border border-zinc-200 flex items-center justify-center mb-3 text-zinc-900 font-black text-sm">A</div>
+        <a href="https://www.amazon.in/s?k=trushita+cold+pressed+oil" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-white border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
+          <div class="w-10 h-10 rounded-sm bg-zinc-50 border border-zinc-200 flex items-center justify-center mb-3 text-zinc-900 font-black text-sm">A</div>
           <h3 class="text-sm font-bold text-zinc-900 group-hover:text-black mb-2">Amazon India</h3>
           <span class="px-3 py-1 rounded-sm bg-black text-white text-[10px] font-semibold group-hover:bg-zinc-800 transition-colors">Shop on Amazon →</span>
         </a>
 
-        <a href="https://www.flipkart.com/search?q=trushita+cold+pressed+oil" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
-          <div class="w-10 h-10 rounded-sm bg-white border border-zinc-200 flex items-center justify-center mb-3 text-zinc-900 font-black text-sm">F</div>
+        <a href="https://www.flipkart.com/search?q=trushita+cold+pressed+oil" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-white border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
+          <div class="w-10 h-10 rounded-sm bg-zinc-50 border border-zinc-200 flex items-center justify-center mb-3 text-zinc-900 font-black text-sm">F</div>
           <h3 class="text-sm font-bold text-zinc-900 group-hover:text-black mb-2">Flipkart</h3>
           <span class="px-3 py-1 rounded-sm bg-black text-white text-[10px] font-semibold group-hover:bg-zinc-800 transition-colors">Shop on Flipkart →</span>
         </a>
 
-        <a href="https://www.indiamart.com/tattvam-agriexport/" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
+        <a href="https://www.indiamart.com/tattvam-agriexport/" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-white border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
           <div class="w-10 h-10 rounded-sm bg-emerald-50 border border-emerald-200 flex items-center justify-center mb-3 text-emerald-700 font-black text-sm">IM</div>
           <h3 class="text-sm font-bold text-zinc-900 group-hover:text-black mb-2">IndiaMART B2B</h3>
           <span class="px-3 py-1 rounded-sm bg-emerald-600 text-white text-[10px] font-semibold group-hover:bg-emerald-700 transition-colors">Wholesale Inquiry →</span>
@@ -269,4 +467,5 @@ import { withBase } from "../lib/paths.js";
       </div>
     </div>
   </section>
+
 </BaseLayout>

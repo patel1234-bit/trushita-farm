@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { X, ShoppingBag, ShieldCheck, MessageCircle, CreditCard, Sparkles } from "lucide-react";
 import { PRODUCTS } from "../data/catalog.js";
 import { withBase } from "../lib/paths.js";
-import OilBottleArt from "./OilBottleArt.jsx";
 import {
   useTrushitaStore,
   setCartOpen,
@@ -176,7 +175,7 @@ export default function GlobalOverlays() {
                     <ShieldCheck className="w-5 h-5" />
                   </div>
                   <h3 className="text-sm font-bold text-zinc-900">Farm Administration Portal</h3>
-                  <p className="text-[11px] text-zinc-500">Manage orders, NABL batches &amp; oil production</p>
+                  <p className="text-[11px] text-zinc-500">Manage orders, batch records &amp; oil production</p>
                 </div>
 
                 <form
@@ -259,7 +258,7 @@ export default function GlobalOverlays() {
               {[
                 { id: "orders", label: "Order Management" },
                 { id: "overview", label: "Plant Analytics" },
-                { id: "batches", label: "NABL Tested Batches" },
+                { id: "batches", label: "Verified Batch Records" },
                 { id: "coupons", label: "Promo Codes" }
               ].map((t) => (
                 <button
@@ -357,7 +356,7 @@ export default function GlobalOverlays() {
                               >
                                 <option value="Pending">Pending</option>
                                 <option value="Wood-Ghani Pressing">Wood-Ghani Pressing</option>
-                                <option value="Quality NABL Tested">Quality NABL Tested</option>
+                                <option value="Quality Verified">Quality Verified</option>
                                 <option value="Dispatched">Dispatched</option>
                                 <option value="Delivered">Delivered</option>
                               </select>
@@ -374,7 +373,7 @@ export default function GlobalOverlays() {
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider">
-                      Active NABL Tested Batches
+                      Active Batch Records
                     </h4>
                     <div className="flex gap-2">
                       <input
@@ -401,7 +400,7 @@ export default function GlobalOverlays() {
                         <div className="flex items-center justify-between mb-1.5">
                           <span className="font-mono font-bold text-emerald-700 text-xs">{b.batchNumber}</span>
                           <span className="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-1.5 py-0.5 rounded-sm">
-                            NABL PASS
+                            VERIFIED
                           </span>
                         </div>
                         <h5 className="font-bold text-xs text-zinc-900">{b.oilName}</h5>
@@ -584,13 +583,19 @@ export default function GlobalOverlays() {
               </a>
             </div>
           ) : (
-            store.cart.map((item) => (
+            store.cart.map((item) => {
+              const matchedProd = PRODUCTS.find((p) => p.id === item.productId);
+              const rawCartImg = item.image || matchedProd?.image || "/images/hero-trushita-range.jpg";
+              const cartImg = rawCartImg.startsWith("/") ? withBase(rawCartImg) : rawCartImg;
+              return (
               <div
                 key={item.id}
                 className="flex items-center justify-between p-3 bg-zinc-50 rounded-sm border border-zinc-200/70 mb-2"
               >
                 <div className="flex items-center gap-2.5">
-                  <span className="text-2xl">{item.icon}</span>
+                  <div className="w-11 h-11 rounded-sm bg-white border border-zinc-200 p-0.5 shrink-0 overflow-hidden flex items-center justify-center">
+                    <img src={cartImg} alt={item.name} className="w-full h-full object-contain" />
+                  </div>
                   <div>
                     <h4 className="text-xs font-semibold text-zinc-900">{item.name}</h4>
                     <span className="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded-sm">
@@ -625,7 +630,8 @@ export default function GlobalOverlays() {
                   </button>
                 </div>
               </div>
-            ))
+              );
+            })
           )}
         </div>
 
@@ -692,8 +698,16 @@ export default function GlobalOverlays() {
           <div className="bg-white rounded-sm max-w-md w-full p-6 shadow-xl max-h-[90vh] overflow-y-auto border border-zinc-200">
             <div className="flex items-start justify-between mb-4 pb-3 border-b border-zinc-100">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-sm border border-zinc-200 overflow-hidden shrink-0">
-                  <OilBottleArt productId={quickProduct.id} sizeLabel={quickProduct.sizes[store.selectedSizes[quickProduct.id] ?? 0]?.size} />
+                <div className="w-16 h-16 rounded-sm bg-zinc-50 border border-zinc-200 overflow-hidden shrink-0 p-1 flex items-center justify-center">
+                  <img
+                    src={(() => {
+                      const selIdx = store.selectedSizes[quickProduct.id] ?? 0;
+                      const raw = quickProduct.sizes[selIdx]?.image || quickProduct.image;
+                      return raw.startsWith("/") ? withBase(raw) : raw;
+                    })()}
+                    alt={quickProduct.name}
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <div>
                   <h3 className="text-lg font-bold text-zinc-900">{quickProduct.name}</h3>

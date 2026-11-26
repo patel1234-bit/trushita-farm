@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Flame, Sparkles, Utensils, HeartPulse, Plus, Check } from "lucide-react";
+import { Flame, Sparkles, Utensils, HeartPulse, Plus, Check, ShieldCheck } from "lucide-react";
 import { PRODUCTS } from "../data/catalog.js";
 import { addToCart } from "../lib/store.js";
-import OilBottleArt from "./OilBottleArt.jsx";
+import { withBase } from "../lib/paths.js";
 
 const PAIRINGS = [
   {
@@ -10,9 +10,9 @@ const PAIRINGS = [
     label: "Daily Sabzi & Crisp Puris",
     icon: Flame,
     productId: "groundnut",
-    aroma: "Warm, Sweet Roasted Peanut",
+    aroma: "Warm, Authentic Peanut",
     texture: "Silky Golden Body",
-    why: "Rich in monounsaturated fats (51.8% MUFA) that stay remarkably stable during everyday sautéing and deep frying without foaming."
+    why: "Pressed from A1-grade G20 Gujarat groundnuts rich in monounsaturated fats (49.98g per 100g) that remain naturally stable for everyday sautéing and deep frying without foaming."
   },
   {
     id: "tadka",
@@ -21,25 +21,25 @@ const PAIRINGS = [
     productId: "yellow-mustard",
     aroma: "Mellow Spice & Clean Pungency",
     texture: "Bright Amber Gold",
-    why: "Naturally rich in allyl isothiocyanate that acts as an authentic flavor enhancer and preservative for homemade pickles without irritating the eyes."
+    why: "Cold-pressed yellow mustard retains natural pungency and Omega-3 & 6 fatty acids—making it ideal for aromatic tadka, stir-fries, and homemade pickles."
   },
   {
     id: "ayurveda",
-    label: "Oil Pulling & South Tempering",
+    label: "Oil Pulling & Ayurvedic Care",
     icon: Sparkles,
     productId: "white-sesame",
     aroma: "Earthy Unjha Roasted Seed",
-    texture: "Velvety & Rich",
-    why: "Packed with Sesamin and Sesamolin antioxidants. Revered in Ayurveda for morning Kavala (oil pulling), bone strength, and rich tempering."
+    texture: "Rich Golden Elixir",
+    why: "Extracted from Unjha white sesame seeds with balanced MUFA (41.8g) and PUFA (42.3g). Widely cherished for traditional Kavala (oil pulling), massage, and savory tempering."
   },
   {
     id: "omega",
-    label: "Raw Salads & Daily Omega-3",
+    label: "Salads, Dressings & Daily Omega",
     icon: HeartPulse,
     productId: "flaxseed",
     aroma: "Fresh Harvest Nutty Grain",
-    texture: "Deep Amber Elixir",
-    why: "Delivers 55% Alpha-Linolenic Acid (plant Omega-3). Drizzle raw over warm rotis, chutneys, or morning smoothies for cardiovascular wellness."
+    texture: "Warm Amber Pressed",
+    why: "Unrefined virgin flaxseed oil preserves delicate plant-based Omega-3, 6 & 9 fatty acids. Drizzle unheated over warm rotis, chutneys, salads, or smoothies."
   }
 ];
 
@@ -52,6 +52,8 @@ export default function OilPairingStudio() {
   const defaultIdx = product.sizes.findIndex((s) => s.default);
   const sizeIdx = defaultIdx !== -1 ? defaultIdx : 0;
   const sizeObj = product.sizes[sizeIdx];
+  const rawImg = sizeObj.image || product.image;
+  const imgSrc = rawImg.startsWith("/") ? withBase(rawImg) : rawImg;
 
   const handleQuickAdd = () => {
     addToCart(product.id, sizeIdx);
@@ -65,13 +67,13 @@ export default function OilPairingStudio() {
         {/* Left: Kitchen Mood Selector */}
         <div className="lg:col-span-6 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-zinc-200 bg-zinc-50/70">
           <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
-            Interactive Oil Pairing Studio
+            Interactive Kitchen Guide
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-black tracking-tight mt-3 mb-2">
             Match the Right Oil to Your Kitchen Ritual
           </h2>
           <p className="text-xs sm:text-sm text-zinc-600 mb-6">
-            One refined oil cannot do everything well. Choose what you are preparing to discover its ideal wood-pressed match:
+            Traditional Indian kitchens use different oils for different dishes. Choose what you are preparing to discover its wood-pressed match:
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -107,15 +109,22 @@ export default function OilPairingStudio() {
           </div>
         </div>
 
-        {/* Right: Matched Oil Vessel & Tasting Notes */}
+        {/* Right: Matched Real Product Photograph & Notes */}
         <div className="lg:col-span-6 p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 bg-white">
-          <div className="w-44 h-52 rounded-sm border border-zinc-200 overflow-hidden shrink-0 group">
-            <OilBottleArt productId={product.id} sizeLabel={sizeObj.size} />
+          <div className="w-48 h-56 rounded-sm border border-zinc-200 bg-zinc-50 overflow-hidden shrink-0 group p-2 flex items-center justify-center">
+            <img
+              src={imgSrc}
+              alt={product.name}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
 
           <div className="flex-1 text-left">
             <div className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-200 mb-2">
-              Perfect Match • {product.tag}
+              <ShieldCheck className="w-3 h-3" />
+              <span>Ideal Match • {product.tag}</span>
             </div>
             <h3 className="text-xl font-black text-zinc-950 tracking-tight">{product.name}</h3>
             <p className="text-xs text-emerald-700 font-semibold mb-3">{product.hindiName}</p>
@@ -123,12 +132,12 @@ export default function OilPairingStudio() {
 
             <div className="grid grid-cols-2 gap-2 mb-4 text-[11px] bg-zinc-50 p-2.5 rounded-sm border border-zinc-200">
               <div>
-                <span className="text-zinc-400 block font-semibold">Aroma Profile</span>
-                <span className="font-bold text-zinc-900">{active.aroma}</span>
+                <span className="text-zinc-400 block font-semibold">Origin</span>
+                <span className="font-bold text-zinc-900">{product.seedOrigin}</span>
               </div>
               <div>
-                <span className="text-zinc-400 block font-semibold">Texture &amp; Hue</span>
-                <span className="font-bold text-zinc-900">{active.texture}</span>
+                <span className="text-zinc-400 block font-semibold">Extraction</span>
+                <span className="font-bold text-zinc-900">{product.pressingMethod}</span>
               </div>
             </div>
 

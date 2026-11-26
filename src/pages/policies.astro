@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { BRAND_INFO } from "../data/catalog.js";
+import { withBase } from "../lib/paths.js";
+---
+
+<BaseLayout title="Policies & Quality Commitment | Trushita Natural Food" currentPage="home">
+  <section class="py-12 bg-zinc-50 border-b border-zinc-200 bg-grid-pattern">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-sm border border-emerald-200">
+        Transparency &amp; Standards
+      </span>
+      <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-black mt-3 mb-2">
+        Company Policies &amp; Quality Pledge
+      </h1>
+      <p class="text-xs sm:text-sm text-zinc-600 max-w-xl mx-auto">
+        {BRAND_INFO.legalName} — FSSAI Lic. No. {BRAND_INFO.fssai} • {BRAND_INFO.shortLocation}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white border-b border-zinc-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 text-xs sm:text-sm text-zinc-700 leading-relaxed">
+
+      <div id="quality" class="p-6 sm:p-7 rounded-sm bg-zinc-50 border border-zinc-200">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">01 / Quality Verification</span>
+        <h2 class="text-xl font-extrabold text-zinc-950 mt-1 mb-3">Manufacturing &amp; Purity Standards</h2>
+        <p class="mb-3">
+          Every bottle of Trushita wood-pressed oil is produced at our Visnagar manufacturing facility ({BRAND_INFO.address}) using traditional wooden ghani crushing and natural gravity settling.
+        </p>
+        <ul class="space-y-2 list-disc pl-5 text-zinc-600">
+          <li>100% single-seed lots sourced from A1-grade harvests; free from argemone oil, mineral oil blending, or hexane solvents.</li>
+          <li>Natural sediment settles gently over 48 hours and minor cloudiness at the bottom is an authentic signature of unrefined cold pressing.</li>
+          <li>You can inspect active batch traceability details on our <a href={withBase("/lab-reports")} class="text-emerald-700 font-bold underline">Verify Purity page</a>.</li>
+        </ul>
+      </div>
+
+      <div id="shipping" class="p-6 sm:p-7 rounded-sm bg-white border border-zinc-200">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">02 / Dispatch &amp; Packing</span>
+        <h2 class="text-xl font-extrabold text-zinc-950 mt-1 mb-3">Shipping, Leak Protection &amp; Returns</h2>
+        <ul class="space-y-2 list-disc pl-5 text-zinc-600">
+          <li>Orders of ₹799 or more qualify for complimentary delivery across India. Orders below ₹799 carry a flat ₹70 transit fee.</li>
+          <li>All 250 ml, 500 ml, 1 Litre, and 5 Litre packs are tamper-proof sealed and cushioned for damage-free delivery.</li>
+          <li>In the rare event of transit damage or leakage, share an unboxing photograph on WhatsApp or email within 48 hours of delivery for an immediate free replacement or refund.</li>
+        </ul>
+      </div>
+
+      <div id="privacy" class="p-6 sm:p-7 rounded-sm bg-zinc-50 border border-zinc-200">
+        <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700">03 / Data &amp; Terms</span>
+        <h2 class="text-xl font-extrabold text-zinc-950 mt-1 mb-3">Privacy Policy &amp; Terms of Service</h2>
+        <p class="mb-3">
+          Customer details entered during account sign-in or order placement are stored locally in your browser or shared directly via your explicit WhatsApp checkout message solely to fulfill your wood-pressed oil order.
+        </p>
+        <p class="text-zinc-600">
+          We never sell, rent, or distribute personal information to third-party data brokers. All content, trademarks, and product photography belong to {BRAND_INFO.legalName}.
+        </p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
