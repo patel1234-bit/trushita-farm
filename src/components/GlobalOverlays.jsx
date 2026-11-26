@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { X, ShoppingBag, ShieldCheck, MessageCircle, CreditCard, Sparkles } from "lucide-react";
 import { PRODUCTS } from "../data/catalog.js";
 import { withBase } from "../lib/paths.js";
+import OilBottleArt from "./OilBottleArt.jsx";
 import {
   useTrushitaStore,
   setCartOpen,
@@ -691,7 +692,9 @@ export default function GlobalOverlays() {
           <div className="bg-white rounded-sm max-w-md w-full p-6 shadow-xl max-h-[90vh] overflow-y-auto border border-zinc-200">
             <div className="flex items-start justify-between mb-4 pb-3 border-b border-zinc-100">
               <div className="flex items-center gap-3">
-                <span className="text-3xl">{quickProduct.icon}</span>
+                <div className="w-12 h-12 rounded-sm border border-zinc-200 overflow-hidden shrink-0">
+                  <OilBottleArt productId={quickProduct.id} sizeLabel={quickProduct.sizes[store.selectedSizes[quickProduct.id] ?? 0]?.size} />
+                </div>
                 <div>
                   <h3 className="text-lg font-bold text-zinc-900">{quickProduct.name}</h3>
                   <p className="text-xs font-semibold text-emerald-700">{quickProduct.hindiName}</p>

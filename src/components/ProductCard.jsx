@@ -6,6 +6,7 @@ import {
   addToCart,
   setQuickViewProduct
 } from "../lib/store.js";
+import OilBottleArt from "./OilBottleArt.jsx";
 
 export default function ProductCard({ product }) {
   const store = useTrushitaStore();
@@ -21,19 +22,17 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="product-card group flex flex-col justify-between p-4 sm:p-5 rounded-sm bg-white border border-zinc-200/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-zinc-300 transition-all duration-300">
-      {/* Aspect-Square Preview */}
-      <div className="relative mb-3.5 w-full aspect-square rounded-sm bg-zinc-50 flex items-center justify-center border border-zinc-100 overflow-hidden group-hover:bg-emerald-50/20 transition-colors">
-        <span className="text-6xl filter drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
-          {product.icon}
-        </span>
+    <div className="product-card group flex flex-col justify-between p-4 sm:p-5 rounded-sm bg-white border border-zinc-200/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:shadow-md hover:border-emerald-300/80 transition-all duration-300">
+      {/* Bespoke Branded Oil Vessel Illustration (switches dynamically between Bottle & 5L Tin) */}
+      <div className="relative mb-3.5 w-full aspect-square rounded-sm border border-zinc-200/70 overflow-hidden">
+        <OilBottleArt productId={product.id} sizeLabel={currentSize.size} />
 
         <div className="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-sm flex items-center gap-1 shadow-xs">
           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
           <span>{product.tag}</span>
         </div>
 
-        <div className="absolute bottom-2 left-2 text-[10px] font-semibold text-zinc-600 bg-white/95 backdrop-blur-xs px-2 py-0.5 rounded-sm border border-zinc-200/80">
+        <div className="absolute bottom-2 left-2 text-[10px] font-semibold text-zinc-700 bg-white/95 backdrop-blur-xs px-2 py-0.5 rounded-sm border border-zinc-200/80">
           {product.pressingMethod.split("(")[0].trim()}
         </div>
 

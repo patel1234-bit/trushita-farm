@@ -2,11 +2,12 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import GhaniSimulator from "../components/GhaniSimulator.jsx";
 import ProductStore from "../components/ProductStore.jsx";
+import OilPairingStudio from "../components/OilPairingStudio.jsx";
 import { withBase } from "../lib/paths.js";
 ---
 
 <BaseLayout title="Trushita Natural Food | Pure Wood-Pressed Oils & Farm Purity" currentPage="home">
-  <!-- Hero Section (Static Copy + Interactive Wood-Ghani Island) -->
+  <!-- Hero Section (Static Copy + Interactive Cutaway Wood-Ghani Oil Pour) -->
   <section class="relative pt-12 pb-16 overflow-hidden bg-zinc-50 border-b border-zinc-200 bg-grid-pattern">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
@@ -70,8 +71,37 @@ import { withBase } from "../lib/paths.js";
     </div>
   </section>
 
-  <!-- Static Section: Why Choose Trushita (0 KB JS) -->
+  <!-- Flowing Oil Ribbon Strip (Static Editorial Banner) -->
+  <div class="bg-zinc-950 text-white py-3.5 border-b border-zinc-800 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-center sm:justify-between gap-4 text-[11px] font-semibold tracking-wider uppercase">
+      <span class="inline-flex items-center gap-2 text-emerald-400">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+        Single-Origin Saurashtra Groundnuts
+      </span>
+      <span class="text-zinc-600 hidden sm:inline">/</span>
+      <span class="inline-flex items-center gap-2 text-zinc-200">
+        Babool Timber Kolhu Extraction
+      </span>
+      <span class="text-zinc-600 hidden sm:inline">/</span>
+      <span class="inline-flex items-center gap-2 text-zinc-200">
+        48-Hour Natural Gravity Settling
+      </span>
+      <span class="text-zinc-600 hidden sm:inline">/</span>
+      <span class="inline-flex items-center gap-2 text-emerald-400">
+        4-Layer Unbleached Cotton Filter
+      </span>
+    </div>
+  </div>
+
+  <!-- Interactive Oil Pairing Studio -->
   <section class="py-16 bg-white border-b border-zinc-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <OilPairingStudio client:visible />
+    </div>
+  </section>
+
+  <!-- Why Choose Trushita (Editorial Cards with Clean SVG Line Art) -->
+  <section class="py-16 bg-zinc-50 border-b border-zinc-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto mb-12">
         <h2 class="text-3xl md:text-4xl tracking-tight mb-2 text-black font-extrabold">
@@ -83,33 +113,54 @@ import { withBase } from "../lib/paths.js";
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-zinc-300 transition-all text-center group">
-          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🚜</div>
+        <div class="p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-400 transition-all text-left group">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-11 h-11 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l8-4v18m6 0V11l-6-3"/>
+              </svg>
+            </div>
+            <span class="font-mono text-xs font-bold text-zinc-400">01 / FARM DIRECT</span>
+          </div>
           <h3 class="text-base font-bold text-zinc-900 group-hover:text-emerald-700 transition-colors mb-2">
             Directly Sourced From Local Farms
           </h3>
           <p class="text-xs text-zinc-600 leading-relaxed">
-            Sourced directly from native Saurashtra and Gujarat farmer cooperatives. No middlemen, ensuring pure seed identity and maximum freshness.
+            Procured directly from native Saurashtra and Gujarat farmer cooperatives near Unjha. No middlemen, ensuring pure single-seed identity.
           </p>
         </div>
 
-        <div class="p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-zinc-300 transition-all text-center group">
-          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🛡️</div>
+        <div class="p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-400 transition-all text-left group">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-11 h-11 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <span class="font-mono text-xs font-bold text-zinc-400">02 / NABL TESTED</span>
+          </div>
           <h3 class="text-base font-bold text-zinc-900 group-hover:text-emerald-700 transition-colors mb-2">
             Committed Consistency
           </h3>
           <p class="text-xs text-zinc-600 leading-relaxed">
-            Unwavering commitment to taste, aroma, and high standards. Every batch is unbleached and certified by accredited NABL laboratories.
+            Unwavering commitment to aroma, flavor, and safety. Every single press is unbleached and verified by accredited NABL laboratories.
           </p>
         </div>
 
-        <div class="p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-zinc-300 transition-all text-center group">
-          <div class="w-14 h-14 mx-auto mb-4 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">🌱</div>
+        <div class="p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-400 transition-all text-left group">
+          <div class="flex items-center justify-between mb-5">
+            <div class="w-11 h-11 rounded-sm bg-emerald-50 border border-emerald-200 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"/>
+              </svg>
+            </div>
+            <span class="font-mono text-xs font-bold text-zinc-400">03 / ECO CRAFT</span>
+          </div>
           <h3 class="text-base font-bold text-zinc-900 group-hover:text-emerald-700 transition-colors mb-2">
             Climate Friendly &amp; Natural
           </h3>
           <p class="text-xs text-zinc-600 leading-relaxed">
-            Traditional wood-pressed technique uses minimal electricity. Packaged in food-grade tin cans and glass to protect our environment.
+            Traditional wood-pressed extraction uses minimal power and zero chemical waste, packaged in recyclable tins and dark UV glass.
           </p>
         </div>
       </div>
@@ -117,7 +168,7 @@ import { withBase } from "../lib/paths.js";
   </section>
 
   <!-- Featured Oils Preview Island -->
-  <section class="py-16 bg-zinc-50 border-b border-zinc-200">
+  <section class="py-16 bg-white border-b border-zinc-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
         <div>
@@ -138,8 +189,8 @@ import { withBase } from "../lib/paths.js";
     </div>
   </section>
 
-  <!-- Dedicated Pages Explorer (Static HTML) -->
-  <section class="py-16 bg-white border-b border-zinc-200">
+  <!-- Dedicated Pages Explorer -->
+  <section class="py-16 bg-zinc-50 border-b border-zinc-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto mb-10">
         <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight text-black mb-2">
@@ -151,7 +202,7 @@ import { withBase } from "../lib/paths.js";
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href={withBase("/process")} class="group p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
+        <a href={withBase("/process")} class="group p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
           <div>
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-200">Craft &amp; Comparison</span>
             <h3 class="text-lg font-bold text-zinc-900 mt-3 mb-2 group-hover:text-emerald-700 transition-colors">5-Stage Wood-Ghani Process</h3>
@@ -162,7 +213,7 @@ import { withBase } from "../lib/paths.js";
           <span class="text-xs font-bold text-black group-hover:text-emerald-700">Inspect Process →</span>
         </a>
 
-        <a href={withBase("/lab-reports")} class="group p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
+        <a href={withBase("/lab-reports")} class="group p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
           <div>
             <span class="text-[10px] font-bold uppercase tracking-wider text-white bg-emerald-600 px-2 py-0.5 rounded-sm">NABL Certified</span>
             <h3 class="text-lg font-bold text-zinc-900 mt-3 mb-2 group-hover:text-emerald-700 transition-colors">Batch Lab Report Verifier</h3>
@@ -173,7 +224,7 @@ import { withBase } from "../lib/paths.js";
           <span class="text-xs font-bold text-black group-hover:text-emerald-700">Verify a Batch →</span>
         </a>
 
-        <a href={withBase("/calculator")} class="group p-6 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
+        <a href={withBase("/calculator")} class="group p-6 rounded-sm bg-white border border-zinc-200 hover:border-emerald-500 transition-all flex flex-col justify-between">
           <div>
             <span class="text-[10px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-200">Smart Planner</span>
             <h3 class="text-lg font-bold text-zinc-900 mt-3 mb-2 group-hover:text-emerald-700 transition-colors">Monthly Kitchen Oil Calculator</h3>
@@ -187,8 +238,8 @@ import { withBase } from "../lib/paths.js";
     </div>
   </section>
 
-  <!-- Marketplaces Section (Static HTML) -->
-  <section id="marketplaces" class="py-14 bg-zinc-50 border-b border-zinc-200">
+  <!-- Marketplaces Section -->
+  <section id="marketplaces" class="py-14 bg-white border-b border-zinc-200">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-2xl md:text-3xl tracking-tight mb-2 text-black font-extrabold">
         You Can Find Us At
@@ -198,20 +249,20 @@ import { withBase } from "../lib/paths.js";
       </p>
 
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl mx-auto">
-        <a href="https://www.amazon.in/s?k=trushita+cold+pressed+oil" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-white border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
-          <div class="text-3xl mb-2">📦</div>
+        <a href="https://www.amazon.in/s?k=trushita+cold+pressed+oil" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
+          <div class="w-10 h-10 rounded-sm bg-white border border-zinc-200 flex items-center justify-center mb-3 text-zinc-900 font-black text-sm">A</div>
           <h3 class="text-sm font-bold text-zinc-900 group-hover:text-black mb-2">Amazon India</h3>
           <span class="px-3 py-1 rounded-sm bg-black text-white text-[10px] font-semibold group-hover:bg-zinc-800 transition-colors">Shop on Amazon →</span>
         </a>
 
-        <a href="https://www.flipkart.com/search?q=trushita+cold+pressed+oil" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-white border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
-          <div class="text-3xl mb-2">🛍️</div>
+        <a href="https://www.flipkart.com/search?q=trushita+cold+pressed+oil" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
+          <div class="w-10 h-10 rounded-sm bg-white border border-zinc-200 flex items-center justify-center mb-3 text-zinc-900 font-black text-sm">F</div>
           <h3 class="text-sm font-bold text-zinc-900 group-hover:text-black mb-2">Flipkart</h3>
           <span class="px-3 py-1 rounded-sm bg-black text-white text-[10px] font-semibold group-hover:bg-zinc-800 transition-colors">Shop on Flipkart →</span>
         </a>
 
-        <a href="https://www.indiamart.com/tattvam-agriexport/" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-white border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
-          <div class="text-3xl mb-2">🏢</div>
+        <a href="https://www.indiamart.com/tattvam-agriexport/" target="_blank" rel="noopener noreferrer" class="group p-5 rounded-sm bg-zinc-50 border border-zinc-200 hover:border-zinc-300 shadow-2xs hover:shadow-xs transition-all flex flex-col items-center">
+          <div class="w-10 h-10 rounded-sm bg-emerald-50 border border-emerald-200 flex items-center justify-center mb-3 text-emerald-700 font-black text-sm">IM</div>
           <h3 class="text-sm font-bold text-zinc-900 group-hover:text-black mb-2">IndiaMART B2B</h3>
           <span class="px-3 py-1 rounded-sm bg-emerald-600 text-white text-[10px] font-semibold group-hover:bg-emerald-700 transition-colors">Wholesale Inquiry →</span>
         </a>
